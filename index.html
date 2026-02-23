@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vlliser — Профессиональные юридические решения | Баку</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  // ─── EmailJS Config ─────────────────────────────────────────────────────────
+  // 1. Зарегистрируйтесь на https://www.emailjs.com (бесплатно)
+  // 2. Создайте Email Service и вставьте Service ID ниже
+  // 3. Создайте Email Template и вставьте Template ID ниже
+  // 4. Скопируйте Public Key из Account → API Keys
+  const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';   // ← заменить
+  const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';  // ← заменить
+  const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';   // ← заменить
+  // ────────────────────────────────────────────────────────────────────────────
+  (function(){ emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY }); })();
+</script>
+<style>
+  :root {
+    --navy: #1a2b48; --navy-light: #243556; --navy-dark: #111e33;
+    --gold: #c5a059; --gold-light: #d4b575; --gold-dark: #a8863e;
+    --white: #ffffff; --off-white: #f8f7f4; --gray-mid: #8a9ab5;
+    --text-body: #3a4a63; --shadow: 0 4px 30px rgba(26,43,72,0.12); --shadow-lg: 0 12px 60px rgba(26,43,72,0.18);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Montserrat', sans-serif; color: var(--text-body); background: var(--white); overflow-x: hidden; }
+
+  header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(26,43,72,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(197,160,89,0.2); transition: box-shadow 0.3s; }
+  .header-inner { max-width: 1300px; margin: 0 auto; padding: 0 40px; height: 72px; display: flex; align-items: center; gap: 40px; }
+  .logo { font-size: 26px; font-weight: 800; color: var(--white); letter-spacing: 3px; text-transform: uppercase; text-decoration: none; flex-shrink: 0; }
+  .logo span { color: var(--gold); }
+  nav { display: flex; align-items: center; gap: 4px; flex: 1; }
+  .nav-item { padding: 8px 16px; color: rgba(255,255,255,0.8); font-size: 13px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; text-decoration: none; cursor: pointer; border-radius: 4px; transition: all 0.2s; white-space: nowrap; }
+  .nav-item:hover { color: var(--gold); background: rgba(197,160,89,0.1); }
+  .dropdown { position: relative; }
+  .dropdown-menu { position: absolute; top: calc(100% + 8px); left: 0; background: var(--white); min-width: 240px; border-radius: 8px; box-shadow: var(--shadow-lg); border: 1px solid rgba(26,43,72,0.08); opacity: 0; visibility: hidden; transform: translateY(-8px); transition: all 0.25s ease; z-index: 100; }
+  .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+  .dropdown-menu a { display: block; padding: 12px 20px; color: var(--navy); font-size: 13px; font-weight: 500; text-decoration: none; border-bottom: 1px solid rgba(26,43,72,0.05); transition: all 0.15s; }
+  .dropdown-menu a:last-child { border-bottom: none; border-radius: 0 0 8px 8px; }
+  .dropdown-menu a:first-child { border-radius: 8px 8px 0 0; }
+  .dropdown-menu a:hover { background: var(--off-white); color: var(--gold); padding-left: 26px; }
+  .header-right { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
+  .lang-switcher { display: flex; gap: 2px; background: rgba(255,255,255,0.06); border-radius: 6px; padding: 3px; }
+  .lang-btn { padding: 5px 12px; font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.5); cursor: pointer; border-radius: 4px; transition: all 0.2s; letter-spacing: 0.5px; border: none; background: transparent; font-family: 'Montserrat', sans-serif; }
+  .lang-btn.active { color: var(--navy); background: var(--gold); }
+  .lang-btn:hover:not(.active) { color: var(--white); }
+  .btn-primary { background: var(--gold); color: var(--navy-dark); border: none; padding: 11px 24px; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; border-radius: 4px; cursor: pointer; transition: all 0.25s; text-decoration: none; display: inline-block; font-family: 'Montserrat', sans-serif; }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(197,160,89,0.35); }
+  .btn-outline { background: transparent; color: var(--navy); border: 1.5px solid rgba(26,43,72,0.2); padding: 11px 24px; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; border-radius: 4px; cursor: pointer; transition: all 0.25s; text-decoration: none; display: inline-block; }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+  .btn-hero-outline { background: transparent; color: var(--white); border: 1.5px solid rgba(197,160,89,0.5); padding: 11px 24px; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; border-radius: 4px; cursor: pointer; transition: all 0.25s; text-decoration: none; display: inline-block; }
+  .btn-hero-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  #hero { position: relative; min-height: 100vh; display: flex; align-items: center; background: var(--navy-dark); overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 60% 50%, rgba(197,160,89,0.07) 0%, transparent 60%), linear-gradient(135deg, #0d1824 0%, #1a2b48 50%, #131f35 100%); }
+  .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(197,160,89,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(197,160,89,0.04) 1px, transparent 1px); background-size: 60px 60px; }
+  .hero-decor { position: absolute; right: -80px; top: 50%; transform: translateY(-50%); width: 600px; height: 600px; border: 1px solid rgba(197,160,89,0.08); border-radius: 50%; }
+  .hero-decor::before { content: ''; position: absolute; inset: 60px; border: 1px solid rgba(197,160,89,0.06); border-radius: 50%; }
+  .hero-decor::after { content: ''; position: absolute; inset: 120px; border: 1px solid rgba(197,160,89,0.05); border-radius: 50%; }
+  .hero-content { position: relative; max-width: 1300px; margin: 0 auto; padding: 120px 40px 80px; z-index: 2; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(197,160,89,0.12); border: 1px solid rgba(197,160,89,0.3); color: var(--gold); font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; padding: 8px 16px; border-radius: 100px; margin-bottom: 32px; }
+  .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.3); } }
+  .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(42px, 6vw, 82px); font-weight: 600; color: var(--white); line-height: 1.1; max-width: 780px; }
+  .hero-title-line { display: block; }
+  .hero-title-accent { display: block; color: var(--gold); font-style: italic; }
+  .hero-subtitle { font-size: 15px; color: var(--gray-mid); line-height: 1.7; max-width: 540px; margin: 24px 0 48px; }
+  .hero-cta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .hero-stats { display: flex; margin-top: 80px; border-top: 1px solid rgba(255,255,255,0.07); padding-top: 40px; max-width: 720px; }
+  .hero-stat { flex: 1; padding-right: 32px; border-right: 1px solid rgba(255,255,255,0.07); }
+  .hero-stat:last-child { border-right: none; padding-right: 0; }
+  .stat-num { font-size: 36px; font-weight: 800; color: var(--white); line-height: 1; margin-bottom: 6px; }
+  .stat-num span { color: var(--gold); }
+  .stat-label { font-size: 12px; color: var(--gray-mid); font-weight: 500; line-height: 1.4; }
+
+  section { padding: 100px 0; }
+  .container { max-width: 1300px; margin: 0 auto; padding: 0 40px; }
+  .section-label { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; display: flex; align-items: center; gap: 12px; }
+  .section-label::before { content: ''; display: block; width: 28px; height: 1.5px; background: var(--gold); }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 3.5vw, 54px); font-weight: 600; color: var(--navy); line-height: 1.15; max-width: 620px; margin-bottom: 20px; }
+  .section-desc { font-size: 15px; color: #6a7a95; line-height: 1.75; max-width: 560px; margin-bottom: 48px; }
+
+  #services { background: var(--off-white); }
+  .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 60px; gap: 40px; }
+  .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: rgba(26,43,72,0.06); border-radius: 12px; overflow: hidden; }
+  .service-card { background: var(--white); padding: 40px 32px; cursor: pointer; transition: all 0.3s; position: relative; overflow: hidden; }
+  .service-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--gold); transform: scaleX(0); transition: transform 0.3s; }
+  .service-card:hover { background: var(--navy); }
+  .service-card:hover::after { transform: scaleX(1); }
+  .service-card-photo { width: 100%; height: 160px; object-fit: cover; display: block; border-radius: 0; margin-bottom: 0; opacity: 0.85; transition: opacity 0.3s, transform 0.4s; }
+  .service-card:hover .service-card-photo { opacity: 1; transform: scale(1.03); }
+  .service-photo-wrap { overflow: hidden; margin: -40px -32px 24px; height: 160px; }
+  .service-icon { width: 52px; height: 52px; margin-bottom: 24px; }
+  .service-icon svg { width: 100%; height: 100%; }
+  .service-card:hover .icon-bg { fill: rgba(197,160,89,0.15); }
+  .service-card:hover .icon-stroke { stroke: var(--gold); }
+  .service-name { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 12px; line-height: 1.3; transition: color 0.3s; }
+  .service-card:hover .service-name { color: var(--white); }
+  .service-desc { font-size: 13px; color: #8a9ab5; line-height: 1.65; transition: color 0.3s; }
+  .service-card:hover .service-desc { color: rgba(255,255,255,0.6); }
+  .service-arrow { display: inline-flex; align-items: center; gap: 6px; margin-top: 20px; font-size: 12px; font-weight: 600; color: var(--gold); letter-spacing: 0.5px; text-transform: uppercase; opacity: 0; transform: translateY(4px); transition: all 0.3s; }
+  .service-card:hover .service-arrow { opacity: 1; transform: translateY(0); }
+
+  #why { background: var(--white); }
+  .why-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .why-visual { position: relative; height: 500px; }
+  .why-card-main { position: absolute; inset: 0; background: var(--navy); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; padding: 40px; }
+  .why-card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,43,72,0.95) 0%, rgba(26,43,72,0.3) 60%, transparent 100%), repeating-linear-gradient(45deg, rgba(197,160,89,0.03) 0px, rgba(197,160,89,0.03) 1px, transparent 1px, transparent 20px); }
+  .why-card-content { position: relative; z-index: 2; }
+  .why-quote { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-style: italic; color: var(--white); line-height: 1.5; margin-bottom: 16px; }
+  .why-quote-author { font-size: 13px; color: var(--gold); font-weight: 600; }
+  .why-badge-float { position: absolute; top: -20px; right: -20px; background: var(--gold); color: var(--navy-dark); padding: 24px; border-radius: 12px; text-align: center; box-shadow: 0 12px 40px rgba(197,160,89,0.4); z-index: 5; }
+  .why-badge-num { font-size: 36px; font-weight: 900; line-height: 1; }
+  .why-badge-text { font-size: 11px; font-weight: 600; letter-spacing: 0.5px; margin-top: 4px; }
+  .why-features { display: flex; flex-direction: column; gap: 20px; }
+  .why-feature { display: flex; gap: 20px; padding: 22px 24px; border: 1px solid rgba(26,43,72,0.07); border-radius: 10px; transition: all 0.3s; }
+  .why-feature:hover { border-color: rgba(197,160,89,0.3); box-shadow: 0 4px 20px rgba(197,160,89,0.08); transform: translateX(4px); }
+  .why-feature-icon { width: 44px; height: 44px; background: rgba(197,160,89,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 20px; }
+  .why-feature-body h4 { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 5px; }
+  .why-feature-body p { font-size: 13px; color: #8a9ab5; line-height: 1.6; }
+
+  #geography { background: var(--navy); color: var(--white); }
+  .geo-header { margin-bottom: 60px; }
+  .geo-header .section-title { color: var(--white); }
+  .regions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(255,255,255,0.06); border-radius: 10px; overflow: hidden; }
+  .region-card { background: rgba(255,255,255,0.03); padding: 36px 32px; border-bottom: 2px solid transparent; transition: all 0.3s; cursor: pointer; }
+  .region-card:hover { background: rgba(197,160,89,0.07); border-bottom-color: var(--gold); }
+  .region-flag { font-size: 28px; margin-bottom: 12px; }
+  .region-name { font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+  .region-services { font-size: 12px; color: var(--gray-mid); line-height: 1.6; }
+
+  #process { background: var(--off-white); }
+  .process-steps { display: grid; grid-template-columns: repeat(5, 1fr); position: relative; margin-top: 60px; }
+  .process-steps::before { content: ''; position: absolute; top: 28px; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+  .process-step { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 16px; }
+  .step-num { width: 56px; height: 56px; border-radius: 50%; background: var(--white); border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 800; color: var(--gold); margin-bottom: 20px; position: relative; z-index: 2; transition: all 0.3s; }
+  .process-step:hover .step-num { background: var(--gold); color: var(--navy); transform: scale(1.1); }
+  .step-title { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .step-desc { font-size: 12px; color: #8a9ab5; line-height: 1.6; }
+
+  #news { background: var(--white); }
+  .news-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 24px; margin-top: 50px; }
+  .news-card { border-radius: 10px; overflow: hidden; border: 1px solid rgba(26,43,72,0.08); transition: all 0.3s; cursor: pointer; }
+  .news-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+  .news-img-placeholder { width: 100%; padding-top: 56%; background: linear-gradient(135deg, var(--navy) 0%, #2a4070 100%); position: relative; }
+  .news-img-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 36px; opacity: 0.3; }
+  .news-body { padding: 24px; }
+  .news-tag { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+  .news-title { font-size: 15px; font-weight: 700; color: var(--navy); line-height: 1.4; margin-bottom: 10px; }
+  .news-card-big .news-title { font-size: 20px; }
+  .news-date { font-size: 12px; color: var(--gray-mid); }
+
+  #faq { background: var(--off-white); }
+  .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 50px; }
+  .faq-item { background: var(--white); border-radius: 10px; border: 1px solid rgba(26,43,72,0.07); overflow: hidden; }
+  .faq-item.open { border-color: rgba(197,160,89,0.3); }
+  .faq-q { padding: 20px 24px; font-size: 14px; font-weight: 600; color: var(--navy); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; user-select: none; }
+  .faq-toggle { width: 24px; height: 24px; border-radius: 50%; background: var(--off-white); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; transition: all 0.3s; color: var(--gold); }
+  .faq-item.open .faq-toggle { transform: rotate(45deg); background: var(--gold); color: var(--white); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+  .faq-a-inner { padding: 0 24px 20px; font-size: 13px; color: #8a9ab5; line-height: 1.7; border-top: 1px solid rgba(26,43,72,0.05); padding-top: 14px; }
+
+  #partners { background: var(--off-white); padding: 60px 0; }
+  .partners-label { text-align: center; font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gray-mid); margin-bottom: 40px; }
+  .partners-scroll { overflow: hidden; }
+  .partners-track { display: flex; gap: 60px; animation: scroll 22s linear infinite; width: max-content; }
+  @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  .partner-logo { display: flex; align-items: center; justify-content: center; padding: 14px 30px; background: var(--white); border-radius: 8px; border: 1px solid rgba(26,43,72,0.06); font-size: 14px; font-weight: 700; color: var(--gray-mid); letter-spacing: 1px; white-space: nowrap; min-width: 150px; }
+
+  #contact { background: var(--navy); }
+  .contact-inner { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start; }
+  .contact-info .section-title { color: var(--white); }
+  .contact-info .section-label { color: var(--gold); }
+  .contact-detail { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 22px; padding-bottom: 22px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .contact-detail:last-child { border-bottom: none; }
+  .contact-icon { width: 40px; height: 40px; background: rgba(197,160,89,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .contact-detail-label { font-size: 11px; color: var(--gold); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+  .contact-detail-val { font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.5; }
+  .contact-form { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 40px; }
+  .form-title { font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid rgba(197,160,89,0.2); }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { margin-bottom: 16px; }
+  .form-group label { display: block; font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.5); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+  .form-group input, .form-group select, .form-group textarea { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: var(--white); padding: 13px 16px; font-size: 14px; font-family: 'Montserrat', sans-serif; border-radius: 6px; outline: none; transition: all 0.2s; }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); background: rgba(197,160,89,0.05); }
+  .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.25); }
+  .form-group select option { background: var(--navy); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-submit { width: 100%; background: var(--gold); color: var(--navy-dark); border: none; padding: 16px; font-size: 13px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; border-radius: 6px; cursor: pointer; transition: all 0.25s; margin-top: 8px; font-family: 'Montserrat', sans-serif; }
+  .form-submit:hover { background: var(--gold-light); box-shadow: 0 8px 30px rgba(197,160,89,0.35); transform: translateY(-1px); }
+
+  footer { background: var(--navy-dark); border-top: 1px solid rgba(197,160,89,0.1); padding: 60px 0 30px; }
+  .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 50px; }
+  .footer-logo { font-size: 22px; font-weight: 800; color: var(--white); letter-spacing: 3px; margin-bottom: 16px; }
+  .footer-logo span { color: var(--gold); }
+  .footer-tagline { font-size: 13px; color: var(--gray-mid); line-height: 1.7; margin-bottom: 24px; }
+  .footer-socials { display: flex; gap: 10px; }
+  .social-btn { width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: var(--gray-mid); font-size: 13px; cursor: pointer; transition: all 0.2s; text-decoration: none; }
+  .social-btn:hover { border-color: var(--gold); color: var(--gold); }
+  .footer-col h5 { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--white); margin-bottom: 20px; }
+  .footer-col a { display: block; font-size: 13px; color: var(--gray-mid); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--gold); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.06); font-size: 12px; color: rgba(255,255,255,0.3); gap: 20px; }
+
+  .modal-overlay { position: fixed; inset: 0; background: rgba(10,15,25,0.8); backdrop-filter: blur(8px); z-index: 9999; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.3s; }
+  .modal-overlay.open { opacity: 1; visibility: visible; }
+  .modal { background: var(--white); border-radius: 16px; width: 90%; max-width: 520px; overflow: hidden; transform: scale(0.94) translateY(16px); transition: all 0.3s cubic-bezier(0.34,1.56,0.64,1); position: relative; }
+  .modal-overlay.open .modal { transform: scale(1) translateY(0); }
+  .modal-header { background: var(--navy); padding: 32px 36px; }
+  .modal-header h3 { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; color: var(--white); margin-bottom: 6px; }
+  .modal-header p { font-size: 13px; color: var(--gray-mid); }
+  .modal-close { position: absolute; top: 20px; right: 24px; width: 32px; height: 32px; background: rgba(255,255,255,0.1); border: none; border-radius: 50%; color: var(--white); font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+  .modal-close:hover { background: rgba(255,255,255,0.2); }
+  .modal-body { padding: 32px 36px; }
+  .modal-body .form-group label { color: var(--gray-mid); }
+  .modal-body input, .modal-body select { width: 100%; background: var(--off-white); border: 1.5px solid rgba(26,43,72,0.12); color: var(--navy); padding: 13px 16px; font-size: 14px; font-family: 'Montserrat', sans-serif; border-radius: 6px; outline: none; transition: all 0.2s; }
+  .modal-body input:focus, .modal-body select:focus { border-color: var(--gold); }
+  .modal-body input::placeholder { color: rgba(26,43,72,0.3); }
+  .modal-submit { width: 100%; background: var(--navy); color: var(--white); border: none; padding: 16px; font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; border-radius: 6px; cursor: pointer; transition: all 0.25s; margin-top: 8px; font-family: 'Montserrat', sans-serif; }
+  .modal-submit:hover { background: var(--gold); color: var(--navy); }
+
+  .chat-widget { position: fixed; bottom: 32px; right: 32px; z-index: 900; display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+  .chat-options { display: flex; flex-direction: column; gap: 8px; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s; }
+  .chat-options.open { opacity: 1; visibility: visible; transform: translateY(0); }
+  .chat-btn { display: flex; align-items: center; gap: 10px; background: var(--white); border-radius: 50px; padding: 10px 18px 10px 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); font-size: 13px; font-weight: 600; color: var(--navy); cursor: pointer; text-decoration: none; transition: all 0.2s; border: none; font-family: 'Montserrat', sans-serif; }
+  .chat-btn:hover { transform: translateX(-4px); }
+  .chat-btn-icon { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+  .chat-btn.wa .chat-btn-icon { background: #25D366; }
+  .chat-btn.tg .chat-btn-icon { background: #0088cc; }
+  .chat-main-btn { width: 56px; height: 56px; border-radius: 50%; background: var(--gold); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 22px; box-shadow: 0 6px 24px rgba(197,160,89,0.45); transition: all 0.3s; position: relative; }
+  .chat-main-btn:hover { transform: scale(1.08); }
+  .chat-pulse { position: absolute; inset: -6px; border-radius: 50%; border: 2px solid rgba(197,160,89,0.4); animation: chatpulse 2s ease-out infinite; }
+  @keyframes chatpulse { 0% { transform: scale(0.9); opacity: 1; } 100% { transform: scale(1.4); opacity: 0; } }
+
+  .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 1024px) {
+    .services-grid { grid-template-columns: repeat(2,1fr); }
+    .why-inner { grid-template-columns: 1fr; }
+    .why-visual { height: 320px; }
+    .why-badge-float { right: 10px; top: 10px; }
+    .regions-grid { grid-template-columns: repeat(2,1fr); }
+    .process-steps { grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .process-steps::before { display: none; }
+    .news-grid { grid-template-columns: 1fr 1fr; }
+    .news-card-big { grid-column: span 2; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .contact-inner { grid-template-columns: 1fr; }
+    .faq-grid { grid-template-columns: 1fr; }
+  }
+  /* Burger menu */
+  .burger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 40px; height: 40px; cursor: pointer; background: none; border: none; padding: 4px; flex-shrink: 0; }
+  .burger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: all 0.3s; }
+  .burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .burger.open span:nth-child(2) { opacity: 0; }
+  .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; bottom: 0; background: rgba(17,30,51,0.98); backdrop-filter: blur(16px); z-index: 999; overflow-y: auto; padding: 32px 24px 40px; flex-direction: column; gap: 4px; }
+  .mobile-menu.open { display: flex; }
+  .mobile-nav-item { padding: 14px 16px; color: rgba(255,255,255,0.85); font-size: 15px; font-weight: 600; letter-spacing: 0.5px; text-decoration: none; border-radius: 8px; transition: all 0.2s; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .mobile-nav-item:hover { color: var(--gold); background: rgba(197,160,89,0.08); }
+  .mobile-nav-divider { height: 1px; background: rgba(197,160,89,0.15); margin: 16px 0; }
+  .mobile-nav-cta { margin-top: 16px; }
+  .mobile-nav-cta .btn-primary { width: 100%; text-align: center; padding: 14px; font-size: 13px; }
+
+  @media (max-width: 768px) {
+    .header-inner { padding: 0 20px; gap: 12px; }
+    nav { display: none; }
+    .burger { display: flex; }
+    .header-right .btn-primary { display: none; }
+    .hero-content { padding: 100px 20px 60px; }
+    .hero-stats { flex-wrap: wrap; gap: 20px; }
+    .hero-stat { border-right: none; padding-right: 0; flex: 0 0 calc(50% - 10px); }
+    .container { padding: 0 20px; }
+    section { padding: 70px 0; }
+    .services-grid, .regions-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    .news-grid { grid-template-columns: 1fr; }
+    .news-card-big { grid-column: span 1; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .services-header { flex-direction: column; align-items: flex-start; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+    .chat-widget { bottom: 20px; right: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">VLL<span>I</span>SER</a>
+    <nav>
+      <a href="index.html" class="nav-item" data-i18n="nav_home">Главная</a>
+      <a href="#why" class="nav-item" data-i18n="nav_about">О нас</a>
+      <div class="dropdown">
+        <span class="nav-item" data-i18n="nav_services">Услуги ▾</span>
+        <div class="dropdown-menu">
+          <a href="#" data-i18n="svc1">Регистрация бизнеса</a>
+          <a href="#" data-i18n="svc2">Лицензирование</a>
+          <a href="#" data-i18n="svc3">Иммиграция и ВНЖ</a>
+          <a href="#" data-i18n="svc4">Налоговое планирование</a>
+          <a href="#" data-i18n="svc5">Судебная защита</a>
+          <a href="#" data-i18n="svc6">Корпоративное право</a>
+        </div>
+      </div>
+      <a href="#geography" class="nav-item" data-i18n="nav_geo">Юрисдикции</a>
+      <a href="#news" class="nav-item" data-i18n="nav_news">Новости</a>
+      <a href="#contact" class="nav-item" data-i18n="nav_contact">Контакты</a>
+    </nav>
+    <button class="burger" id="burgerBtn" onclick="toggleMobileMenu()" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <button class="lang-btn active" onclick="setLang('ru')">RU</button>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+      </div>
+      <button class="btn-primary" onclick="openModal()" data-i18n="btn_order">Заказать консультацию</button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#" class="mobile-nav-item" onclick="closeMobileMenu()" data-i18n="nav_home">Главная</a>
+  <a href="#why" class="mobile-nav-item" onclick="closeMobileMenu()" data-i18n="nav_about">О нас</a>
+  <a href="#services" class="mobile-nav-item" onclick="closeMobileMenu()" data-i18n="nav_services">Услуги</a>
+  <a href="#geography" class="mobile-nav-item" onclick="closeMobileMenu()" data-i18n="nav_geo">Юрисдикции</a>
+  <a href="#news" class="mobile-nav-item" onclick="closeMobileMenu()" data-i18n="nav_news">Новости</a>
+  <a href="#contact" class="mobile-nav-item" onclick="closeMobileMenu()" data-i18n="nav_contact">Контакты</a>
+  <div class="mobile-nav-divider"></div>
+  <div class="mobile-nav-cta">
+    <button class="btn-primary" onclick="closeMobileMenu(); openModal();" data-i18n="btn_order">Заказать консультацию</button>
+  </div>
+</div>
+
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-decor"></div>
+  <div class="hero-content">
+    <div class="hero-badge" data-i18n="hero_badge">Международное право · Баку, Азербайджан</div>
+    <h1 class="hero-title">
+      <span class="hero-title-line">Vlliser —</span>
+      <span class="hero-title-accent" data-i18n="hero_accent">Юридическая опора</span>
+      <span class="hero-title-line" data-i18n="hero_line">в глобальном мире</span>
+    </h1>
+    <p class="hero-subtitle" data-i18n="hero_sub">Ведущая юридическая компания Баку: регистрация бизнеса, лицензирование, иммиграция и защита активов в ключевых юрисдикциях мира. Соединяем Каспийский регион с глобальными рынками.</p>
+    <div class="hero-cta">
+      <button class="btn-primary" onclick="openModal()" data-i18n="btn_consult">Получить консультацию</button>
+      <a href="#services" class="btn-hero-outline" data-i18n="btn_services">Наши услуги</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="stat-num">10<span>+</span></div>
+        <div class="stat-label" data-i18n="stat1">Лет на рынке международного права</div>
+      </div>
+      <div class="hero-stat" style="padding-left:32px;">
+        <div class="stat-num">1800<span>+</span></div>
+        <div class="stat-label" data-i18n="stat2">Успешно завершённых проектов</div>
+      </div>
+      <div class="hero-stat" style="padding-left:32px;">
+        <div class="stat-num">35<span>+</span></div>
+        <div class="stat-label" data-i18n="stat3">Стран присутствия и партнёрств</div>
+      </div>
+      <div class="hero-stat" style="padding-left:32px; border-right:none;">
+        <div class="stat-num">97<span>%</span></div>
+        <div class="stat-label" data-i18n="stat4">Клиентов рекомендуют наши услуги</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <div class="services-header">
+      <div>
+        <div class="section-label" data-i18n="svc_label">Что мы делаем</div>
+        <h2 class="section-title" style="margin-bottom:0" data-i18n="svc_title">Полный спектр юридических услуг</h2>
+      </div>
+      <p class="section-desc" style="margin-bottom:0" data-i18n="svc_desc">От регистрации компании до защиты интересов в суде — полное сопровождение вашего бизнеса</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-in" onclick="location.href='service-registration.html'">
+        <div class="service-photo-wrap"><img class="service-card-photo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMTYwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMxYTJiNDgiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMyYTUyOTgiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjE2MCIgZmlsbD0idXJsKCNnKSIvPjx0ZXh0IHg9IjIwMCIgeT0iOTUiIGZvbnQtc2l6ZT0iNDgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIG9wYWNpdHk9IjAuMjUiPvCfj6I8L3RleHQ+PC9zdmc+" alt="Регистрация бизнеса" loading="lazy"></div>
+        <div class="service-icon"><svg viewBox="0 0 52 52" fill="none"><circle cx="26" cy="26" r="26" fill="rgba(197,160,89,0.08)" class="icon-bg"/><path d="M16 20h20v16H16z" stroke="#c5a059" stroke-width="1.5" stroke-linejoin="round" class="icon-stroke"/><path d="M20 20v-4h12v4" stroke="#c5a059" stroke-width="1.5" stroke-linecap="round" class="icon-stroke"/><path d="M21 28h10M21 32h6" stroke="#c5a059" stroke-width="1.5" stroke-linecap="round" class="icon-stroke"/></svg></div>
+        <div class="service-name" data-i18n="svc1">Регистрация бизнеса</div>
+        <div class="service-desc" data-i18n="svc1_d">Открытие компаний в Азербайджане, ОАЭ, Великобритании и Гонконге. Полное сопровождение через ASAN Xidmət и MIDA.</div>
+        <div class="service-arrow" data-i18n="more">Подробнее →</div>
+      </div>
+      <div class="service-card fade-in" onclick="location.href='service-licensing.html'">
+        <div class="service-photo-wrap"><img class="service-card-photo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMTYwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMxYTNhMWEiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMyZDZhMmQiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjE2MCIgZmlsbD0idXJsKCNnKSIvPjx0ZXh0IHg9IjIwMCIgeT0iOTUiIGZvbnQtc2l6ZT0iNDgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIG9wYWNpdHk9IjAuMjUiPvCfk4s8L3RleHQ+PC9zdmc+" alt="Лицензирование" loading="lazy"></div>
+        <div class="service-icon"><svg viewBox="0 0 52 52" fill="none"><circle cx="26" cy="26" r="26" fill="rgba(197,160,89,0.08)" class="icon-bg"/><path d="M18 24l8-8 8 8v12H18V24z" stroke="#c5a059" stroke-width="1.5" stroke-linejoin="round" class="icon-stroke"/><path d="M23 36v-6h6v6" stroke="#c5a059" stroke-width="1.5" class="icon-stroke"/></svg></div>
+        <div class="service-name" data-i18n="svc2">Лицензирование</div>
+        <div class="service-desc" data-i18n="svc2_d">Получение лицензий для финтех, крипто и регулируемой деятельности в Азербайджане, ОАЭ и ЕС.</div>
+        <div class="service-arrow" data-i18n="more">Подробнее →</div>
+      </div>
+      <div class="service-card fade-in" onclick="location.href='service-immigration.html'">
+        <div class="service-photo-wrap"><img class="service-card-photo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMTYwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMyYjFhNDgiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM1YTJkODIiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjE2MCIgZmlsbD0idXJsKCNnKSIvPjx0ZXh0IHg9IjIwMCIgeT0iOTUiIGZvbnQtc2l6ZT0iNDgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIG9wYWNpdHk9IjAuMjUiPuKciO+4jzwvdGV4dD48L3N2Zz4=" alt="Иммиграция" loading="lazy"></div>
+        <div class="service-icon"><svg viewBox="0 0 52 52" fill="none"><circle cx="26" cy="26" r="26" fill="rgba(197,160,89,0.08)" class="icon-bg"/><path d="M26 18a5 5 0 100 10 5 5 0 000-10z" stroke="#c5a059" stroke-width="1.5" class="icon-stroke"/><path d="M16 36c0-5.523 4.477-10 10-10s10 4.477 10 10" stroke="#c5a059" stroke-width="1.5" stroke-linecap="round" class="icon-stroke"/></svg></div>
+        <div class="service-name" data-i18n="svc3">Иммиграция и ВНЖ</div>
+        <div class="service-desc" data-i18n="svc3_d">ВНЖ в Азербайджане для иностранных инвесторов. «Золотые визы» в ОАЭ, Португалии и Мальте.</div>
+        <div class="service-arrow" data-i18n="more">Подробнее →</div>
+      </div>
+      <div class="service-card fade-in" onclick="location.href='service-tax.html'">
+        <div class="service-photo-wrap"><img class="service-card-photo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMTYwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiM0ODM0MWEiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNhMDYyMmEiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjE2MCIgZmlsbD0idXJsKCNnKSIvPjx0ZXh0IHg9IjIwMCIgeT0iOTUiIGZvbnQtc2l6ZT0iNDgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIG9wYWNpdHk9IjAuMjUiPvCfk4o8L3RleHQ+PC9zdmc+" alt="Налоговое планирование" loading="lazy"></div>
+        <div class="service-icon"><svg viewBox="0 0 52 52" fill="none"><circle cx="26" cy="26" r="26" fill="rgba(197,160,89,0.08)" class="icon-bg"/><path d="M20 34h12M26 16v2M20 20l-2-2M32 20l2-2" stroke="#c5a059" stroke-width="1.5" stroke-linecap="round" class="icon-stroke"/><path d="M19 30c0-3.866 3.134-7 7-7s7 3.134 7 7" stroke="#c5a059" stroke-width="1.5" stroke-linecap="round" class="icon-stroke"/></svg></div>
+        <div class="service-name" data-i18n="svc4">Налоговое планирование</div>
+        <div class="service-desc" data-i18n="svc4_d">Налоговая оптимизация через преимущества азербайджанского законодательства и 50+ международных налоговых соглашений.</div>
+        <div class="service-arrow" data-i18n="more">Подробнее →</div>
+      </div>
+      <div class="service-card fade-in" onclick="location.href='service-litigation.html'">
+        <div class="service-photo-wrap"><img class="service-card-photo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMTYwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiM0ODFhMWEiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM4YjIyMjIiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjE2MCIgZmlsbD0idXJsKCNnKSIvPjx0ZXh0IHg9IjIwMCIgeT0iOTUiIGZvbnQtc2l6ZT0iNDgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIG9wYWNpdHk9IjAuMjUiPuKalu+4jzwvdGV4dD48L3N2Zz4=" alt="Судебная защита" loading="lazy"></div>
+        <div class="service-icon"><svg viewBox="0 0 52 52" fill="none"><circle cx="26" cy="26" r="26" fill="rgba(197,160,89,0.08)" class="icon-bg"/><path d="M18 36l8-14 8 14H18z" stroke="#c5a059" stroke-width="1.5" stroke-linejoin="round" class="icon-stroke"/><path d="M26 26v4M26 32.5v.5" stroke="#c5a059" stroke-width="1.5" stroke-linecap="round" class="icon-stroke"/></svg></div>
+        <div class="service-name" data-i18n="svc5">Судебная защита</div>
+        <div class="service-desc" data-i18n="svc5_d">Представление интересов в судах Азербайджана и международных арбитражах. Корпоративные споры и защита инвестиций.</div>
+        <div class="service-arrow" data-i18n="more">Подробнее →</div>
+      </div>
+      <div class="service-card fade-in" onclick="location.href='service-corporate.html'">
+        <div class="service-photo-wrap"><img class="service-card-photo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMTYwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMxYTM0NDgiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxYTUyNzYiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjE2MCIgZmlsbD0idXJsKCNnKSIvPjx0ZXh0IHg9IjIwMCIgeT0iOTUiIGZvbnQtc2l6ZT0iNDgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIG9wYWNpdHk9IjAuMjUiPvCfpJ08L3RleHQ+PC9zdmc+" alt="Корпоративное право" loading="lazy"></div>
+        <div class="service-icon"><svg viewBox="0 0 52 52" fill="none"><circle cx="26" cy="26" r="26" fill="rgba(197,160,89,0.08)" class="icon-bg"/><rect x="18" y="18" width="16" height="16" rx="2" stroke="#c5a059" stroke-width="1.5" class="icon-stroke"/><path d="M22 26h8M22 30h5M22 22h8" stroke="#c5a059" stroke-width="1.5" stroke-linecap="round" class="icon-stroke"/></svg></div>
+        <div class="service-name" data-i18n="svc6">Корпоративное право</div>
+        <div class="service-desc" data-i18n="svc6_d">Due diligence, M&A, контракты и корпоративная реструктуризация по праву Азербайджана и международному праву.</div>
+        <div class="service-arrow" data-i18n="more">Подробнее →</div>
+      </div>
+      <div class="service-card fade-in" onclick="location.href='service-alat.html'">
+        <div class="service-photo-wrap"><img class="service-card-photo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMTYwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMxYTQ4NDAiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxYTdhNmUiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjE2MCIgZmlsbD0idXJsKCNnKSIvPjx0ZXh0IHg9IjIwMCIgeT0iOTUiIGZvbnQtc2l6ZT0iNDgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIG9wYWNpdHk9IjAuMjUiPvCfj608L3RleHQ+PC9zdmc+" alt="Алятская ОЭЗ" loading="lazy"></div>
+        <div class="service-icon"><svg viewBox="0 0 52 52" fill="none"><circle cx="26" cy="26" r="26" fill="rgba(197,160,89,0.08)" class="icon-bg"/><path d="M20 22h12M20 26h8M20 30h10" stroke="#c5a059" stroke-width="1.5" stroke-linecap="round" class="icon-stroke"/><rect x="16" y="17" width="20" height="18" rx="2" stroke="#c5a059" stroke-width="1.5" class="icon-stroke"/></svg></div>
+        <div class="service-name" data-i18n="svc7">Алятская ОЭЗ</div>
+        <div class="service-desc" data-i18n="svc7_d">Получение статуса резидента Алятской свободной экономической зоны: 0% налогов на 10 лет для производства и логистики.</div>
+        <div class="service-arrow" data-i18n="more">Подробнее →</div>
+      </div>
+      <div class="service-card fade-in" onclick="location.href='service-fintech.html'">
+        <div class="service-photo-wrap"><img class="service-card-photo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMTYwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMwZDFhMzAiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxYTNhNmIiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjE2MCIgZmlsbD0idXJsKCNnKSIvPjx0ZXh0IHg9IjIwMCIgeT0iOTUiIGZvbnQtc2l6ZT0iNDgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIG9wYWNpdHk9IjAuMjUiPvCfkrs8L3RleHQ+PC9zdmc+" alt="Финтех и Крипто" loading="lazy"></div>
+        <div class="service-icon"><svg viewBox="0 0 52 52" fill="none"><circle cx="26" cy="26" r="26" fill="rgba(197,160,89,0.08)" class="icon-bg"/><path d="M22 18l-6 8 6 8M30 18l6 8-6 8" stroke="#c5a059" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-stroke"/></svg></div>
+        <div class="service-name" data-i18n="svc8">Финтех & Крипто</div>
+        <div class="service-desc" data-i18n="svc8_d">Юридическое сопровождение финтех-стартапов в ASAN İnnovasiya и получение лицензий для работы с цифровыми активами.</div>
+        <div class="service-arrow" data-i18n="more">Подробнее →</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="container">
+    <div class="why-inner">
+      <div class="why-visual fade-in">
+        <div class="why-card-main">
+          <div class="why-card-overlay"></div>
+          <div class="why-card-content">
+            <div class="why-quote" data-i18n="why_quote">«Наша миссия — быть мостом между возможностями Азербайджана и глобальными рынками для каждого нашего клиента»</div>
+            <div class="why-quote-author" data-i18n="why_author">— Управляющий партнёр Vlliser, Баку</div>
+          </div>
+        </div>
+        <div class="why-badge-float">
+          <div class="why-badge-num">10</div>
+          <div class="why-badge-text" data-i18n="why_years">ЛЕТ<br>ОПЫТА</div>
+        </div>
+      </div>
+      <div>
+        <div class="section-label" data-i18n="why_label">Почему Vlliser</div>
+        <h2 class="section-title" data-i18n="why_title">Бакинская экспертиза, международный масштаб</h2>
+        <p class="section-desc" data-i18n="why_desc">Мы — команда юристов, выросших в Баку и получивших образование в лучших правовых школах мира. Знаем местное законодательство изнутри и умеем работать на глобальных рынках.</p>
+        <div class="why-features">
+          <div class="why-feature fade-in">
+            <div class="why-feature-icon">🇦🇿</div>
+            <div class="why-feature-body">
+              <h4 data-i18n="f1t">Глубокое знание законодательства Азербайджана</h4>
+              <p data-i18n="f1d">Прямые связи с MIDA, Торгово-промышленной палатой и ASAN Xidmət. Понимаем государственную систему изнутри.</p>
+            </div>
+          </div>
+          <div class="why-feature fade-in">
+            <div class="why-feature-icon">🌐</div>
+            <div class="why-feature-body">
+              <h4 data-i18n="f2t">В сердце Каспийского региона</h4>
+              <p data-i18n="f2d">Баку — стратегический хаб между Европой и Азией. Мы используем это преимущество для эффективных международных структур.</p>
+            </div>
+          </div>
+          <div class="why-feature fade-in">
+            <div class="why-feature-icon">⚡</div>
+            <div class="why-feature-body">
+              <h4 data-i18n="f3t">Три языка, один офис</h4>
+              <p data-i18n="f3d">Наши юристы работают на азербайджанском, русском и английском языках — без потерь в коммуникации и юридических нюансах.</p>
+            </div>
+          </div>
+          <div class="why-feature fade-in">
+            <div class="why-feature-icon">🔒</div>
+            <div class="why-feature-body">
+              <h4 data-i18n="f4t">Полная конфиденциальность</h4>
+              <p data-i18n="f4d">Строгое соблюдение адвокатской тайны по стандартам азербайджанского законодательства и международным требованиям.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="geography">
+  <div class="container">
+    <div class="geo-header">
+      <div class="section-label" data-i18n="geo_label">Наше присутствие</div>
+      <h2 class="section-title" data-i18n="geo_title">Работаем в ключевых юрисдикциях мира</h2>
+    </div>
+    <div class="regions-grid">
+      <div class="region-card fade-in">
+        <div class="region-flag">🇦🇿</div>
+        <div class="region-name" data-i18n="r0">Азербайджан</div>
+        <div class="region-services" data-i18n="r0s">Баку — главный офис · MIDA · ASAN Xidmət · Алятская ОЭЗ</div>
+      </div>
+      <div class="region-card fade-in">
+        <div class="region-flag">🇦🇪</div>
+        <div class="region-name" data-i18n="r1">ОАЭ</div>
+        <div class="region-services" data-i18n="r1s">Дубай, Абу-Даби · Freezone, Mainland · Золотая виза</div>
+      </div>
+      <div class="region-card fade-in">
+        <div class="region-flag">🇬🇧</div>
+        <div class="region-name" data-i18n="r2">Великобритания</div>
+        <div class="region-services" data-i18n="r2s">LTD, LLP · FCA лицензии · Nominee services</div>
+      </div>
+      <div class="region-card fade-in">
+        <div class="region-flag">🇨🇾</div>
+        <div class="region-name" data-i18n="r3">Кипр</div>
+        <div class="region-services" data-i18n="r3s">Холдинги · IP-Box режим · Налог 12.5%</div>
+      </div>
+      <div class="region-card fade-in">
+        <div class="region-flag">🇬🇪</div>
+        <div class="region-name" data-i18n="r4">Грузия</div>
+        <div class="region-services" data-i18n="r4s">Тбилиси · Виртуальная зона · Low-tax структуры</div>
+      </div>
+      <div class="region-card fade-in">
+        <div class="region-flag">🇭🇰</div>
+        <div class="region-name" data-i18n="r5">Гонконг</div>
+        <div class="region-services" data-i18n="r5s">Азиатский хаб · Низкие налоги · Крипто-лицензии</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="container">
+    <div style="text-align:center;max-width:600px;margin:0 auto;">
+      <div class="section-label" style="justify-content:center" data-i18n="proc_label">Как мы работаем</div>
+      <h2 class="section-title" style="max-width:100%;margin:0 auto 20px" data-i18n="proc_title">5 шагов к результату</h2>
+      <p class="section-desc" style="max-width:100%;margin:0 auto" data-i18n="proc_desc">Прозрачный процесс — вы всегда знаете, что происходит с вашим проектом</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step fade-in"><div class="step-num">1</div><div class="step-title" data-i18n="s1t">Консультация</div><div class="step-desc" data-i18n="s1d">Бесплатный анализ вашей ситуации и постановка задачи</div></div>
+      <div class="process-step fade-in"><div class="step-num">2</div><div class="step-title" data-i18n="s2t">Стратегия</div><div class="step-desc" data-i18n="s2d">Разработка оптимального юридического решения</div></div>
+      <div class="process-step fade-in"><div class="step-num">3</div><div class="step-title" data-i18n="s3t">Соглашение</div><div class="step-desc" data-i18n="s3d">Подписание договора с фиксированной стоимостью</div></div>
+      <div class="process-step fade-in"><div class="step-num">4</div><div class="step-title" data-i18n="s4t">Исполнение</div><div class="step-desc" data-i18n="s4d">Реализация проекта с регулярными отчётами</div></div>
+      <div class="process-step fade-in"><div class="step-num">5</div><div class="step-title" data-i18n="s5t">Результат</div><div class="step-desc" data-i18n="s5d">Сдача проекта и поддержка в дальнейшем</div></div>
+    </div>
+    <div style="text-align:center;margin-top:50px;">
+      <button class="btn-primary" onclick="openModal()" data-i18n="btn_start">Начать сотрудничество</button>
+    </div>
+  </div>
+</section>
+
+<section id="news">
+  <div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:0;">
+      <div>
+        <div class="section-label" data-i18n="news_lbl">Актуально</div>
+        <h2 class="section-title" style="margin-bottom:0" data-i18n="news_title">Новости и аналитика</h2>
+      </div>
+      <a href="#" class="btn-outline" data-i18n="news_all">Все статьи</a>
+    </div>
+    <div class="news-grid">
+      <div class="news-card news-card-big fade-in">
+        <div class="news-img-placeholder"><div class="news-img-icon">🇦🇿</div></div>
+        <div class="news-body">
+          <div class="news-tag" data-i18n="nt1">Азербайджан · Инвестиции</div>
+          <div class="news-title" data-i18n="nn1">COP29 в Баку: новые инвестиционные возможности и «зелёные» юридические инструменты для международного бизнеса</div>
+          <div class="news-date" data-i18n="nd1">18 февраля 2025</div>
+        </div>
+      </div>
+      <div class="news-card fade-in">
+        <div class="news-img-placeholder"><div class="news-img-icon">🏦</div></div>
+        <div class="news-body">
+          <div class="news-tag" data-i18n="nt2">MIDA · Бизнес</div>
+          <div class="news-title" data-i18n="nn2">Как иностранному инвестору открыть бизнес в Азербайджане за 5 рабочих дней</div>
+          <div class="news-date" data-i18n="nd2">12 февраля 2025</div>
+        </div>
+      </div>
+      <div class="news-card fade-in">
+        <div class="news-img-placeholder"><div class="news-img-icon">🏭</div></div>
+        <div class="news-body">
+          <div class="news-tag" data-i18n="nt3">Алят ОЭЗ · Налоги</div>
+          <div class="news-title" data-i18n="nn3">Алятская свободная зона: 0% налогов на 10 лет — кто может стать резидентом в 2025 году</div>
+          <div class="news-date" data-i18n="nd3">5 февраля 2025</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container">
+    <div style="text-align:center;max-width:600px;margin:0 auto;">
+      <div class="section-label" style="justify-content:center" data-i18n="faq_lbl">Вопросы и ответы</div>
+      <h2 class="section-title" style="max-width:100%;margin:0 auto" data-i18n="faq_title">Часто задаваемые вопросы</h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span data-i18n="q1">Чем отличается регистрация бизнеса в Азербайджане от других стран?</span><div class="faq-toggle">+</div></div><div class="faq-a"><div class="faq-a-inner" data-i18n="a1">Азербайджан предлагает одну из самых быстрых процедур регистрации в СНГ — через ASAN Xidmət за 1–3 рабочих дня. Минимальный уставной капитал для ООО — 1 манат. Страна заключила более 50 соглашений об избежании двойного налогообложения, что делает её привлекательной для холдинговых структур.</div></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span data-i18n="q2">Как Vlliser помогает иностранным компаниям выйти на рынок Азербайджана?</span><div class="faq-toggle">+</div></div><div class="faq-a"><div class="faq-a-inner" data-i18n="a2">Мы обеспечиваем полный цикл: юридическая структуризация, регистрация, открытие банковского счёта, получение лицензий. Наши связи с MIDA позволяют воспользоваться государственными преференциями и налоговыми льготами для иностранных инвесторов.</div></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span data-i18n="q3">Помогаете ли вы с получением ВНЖ в Азербайджане?</span><div class="faq-toggle">+</div></div><div class="faq-a"><div class="faq-a-inner" data-i18n="a3">Да. Иностранные граждане могут получить вид на жительство на основании инвестиций, трудоустройства или открытия бизнеса. Мы сопровождаем весь процесс до подачи в DSMF (Государственная миграционная служба). Стандартный срок — 10–30 рабочих дней.</div></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span data-i18n="q4">Какие налоговые преимущества есть в Азербайджане?</span><div class="faq-toggle">+</div></div><div class="faq-a"><div class="faq-a-inner" data-i18n="a4">Налог на прибыль — 20%, НДС — 18%. Для резидентов ОЭЗ «Алят»: 0% налогов на прибыль, импорт и дивиденды на 10 лет. Более 50 договоров об избежании двойного налогообложения с ОАЭ, Великобританией и ЕС.</div></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span data-i18n="q5">Можно ли вести всё дистанционно, находясь за рубежом?</span><div class="faq-toggle">+</div></div><div class="faq-a"><div class="faq-a-inner" data-i18n="a5">Большинство процедур возможно провести удалённо с нотариально заверенной доверенностью. Мы работаем с клиентами из России, ОАЭ, Европы в дистанционном формате. Для открытия счёта в некоторых банках нужно личное присутствие — мы организуем визит максимально эффективно.</div></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span data-i18n="q6">Что такое ОЭЗ «Алят» и как туда попасть?</span><div class="faq-toggle">+</div></div><div class="faq-a"><div class="faq-a-inner" data-i18n="a6">Алятская свободная экономическая зона вблизи Баку предоставляет резидентам нулевые налоги на 10 лет. Подходит для производства, логистики и технологических компаний. Мы помогаем получить статус резидента, подготовить бизнес-план и пройти отбор.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="partners">
+  <div class="container">
+    <div class="partners-label" data-i18n="partners_lbl">Наши партнёры и ассоциации</div>
+    <div class="partners-scroll">
+      <div class="partners-track">
+        <div class="partner-logo">MIDA Azerbaijan</div>
+        <div class="partner-logo">ASAN Xidmət</div>
+        <div class="partner-logo">Alat FEZ</div>
+        <div class="partner-logo">AmCham Azerbaijan</div>
+        <div class="partner-logo">IBA</div>
+        <div class="partner-logo">ACCA</div>
+        <div class="partner-logo">DIFC Courts</div>
+        <div class="partner-logo">ABA</div>
+        <div class="partner-logo">MIDA Azerbaijan</div>
+        <div class="partner-logo">ASAN Xidmət</div>
+        <div class="partner-logo">Alat FEZ</div>
+        <div class="partner-logo">AmCham Azerbaijan</div>
+        <div class="partner-logo">IBA</div>
+        <div class="partner-logo">ACCA</div>
+        <div class="partner-logo">DIFC Courts</div>
+        <div class="partner-logo">ABA</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="contact-info">
+        <div class="section-label" data-i18n="cont_lbl">Связаться с нами</div>
+        <h2 class="section-title" data-i18n="cont_title">Получите бесплатную консультацию</h2>
+        <p class="section-desc" style="color:rgba(255,255,255,0.5)" data-i18n="cont_desc">Расскажите о вашей задаче — мы найдём оптимальное решение и ответим в течение 2 часов в рабочее время.</p>
+        <div class="contact-detail">
+          <div class="contact-icon">📍</div>
+          <div><div class="contact-detail-label" data-i18n="addr_lbl">Главный офис</div><div class="contact-detail-val" data-i18n="addr_val">Баку, ул. Низами 90, «Порт Баку» Бизнес-центр<br>AZ1010, Азербайджан</div></div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-icon">📞</div>
+          <div><div class="contact-detail-label" data-i18n="phone_lbl">Телефон</div><div class="contact-detail-val">+994 12 xxx xxxx<br>+994 50 xxx xxxx</div></div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-icon">✉️</div>
+          <div><div class="contact-detail-label">Email</div><div class="contact-detail-val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c9a0a7afa689bfa5a5a0baacbbe7aaa6a4">[email&#160;protected]</a><br><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="422e2725232e02342e2e2b3127306c212d2f">[email&#160;protected]</a></div></div>
+        </div>
+        <div class="contact-detail" style="border:none">
+          <div class="contact-icon">🕐</div>
+          <div><div class="contact-detail-label" data-i18n="hrs_lbl">Часы работы</div><div class="contact-detail-val" data-i18n="hrs_val">Пн–Пт: 9:00–18:00 (AZT)<br>Сб: 10:00–15:00</div></div>
+        </div>
+      </div>
+      <div class="contact-form fade-in">
+        <div class="form-title" data-i18n="f_title">Отправить заявку</div>
+        <div class="form-row">
+          <div class="form-group"><label data-i18n="f_name">Имя *</label><input type="text" data-ph="ph_name" placeholder="Ваше имя"></div>
+          <div class="form-group"><label data-i18n="f_phone">Телефон *</label><input type="tel" placeholder="+994 50 000 00 00"></div>
+        </div>
+        <div class="form-group"><label>Email</label><input type="email" placeholder="email@example.com"></div>
+        <div class="form-group">
+          <label data-i18n="f_svc">Интересующая услуга</label>
+          <select>
+            <option disabled selected data-i18n="f_sel">Выберите услугу</option>
+            <option data-i18n="svc1">Регистрация бизнеса</option>
+            <option data-i18n="svc2">Лицензирование</option>
+            <option data-i18n="svc3">Иммиграция и ВНЖ</option>
+            <option data-i18n="svc4">Налоговое планирование</option>
+            <option data-i18n="svc5">Судебная защита</option>
+            <option data-i18n="f_other">Другое</option>
+          </select>
+        </div>
+        <div class="form-group"><label data-i18n="f_msg">Суть вопроса</label><textarea data-ph="ph_msg" placeholder="Опишите вашу задачу..."></textarea></div>
+        <button class="form-submit" onclick="handleSubmit()" data-i18n="f_sub">Отправить заявку →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">VLL<span>I</span>SER</div>
+        <div class="footer-tagline" data-i18n="ft_tag">Ведущая юридическая компания Баку. Профессиональные решения для международного бизнеса — из сердца Каспийского региона.</div>
+        <div class="footer-socials">
+          <a href="#" class="social-btn">in</a><a href="#" class="social-btn">t.me</a><a href="#" class="social-btn">wa</a><a href="#" class="social-btn">X</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5 data-i18n="ft_svc">Услуги</h5>
+        <a href="#" data-i18n="svc1">Регистрация бизнеса</a>
+        <a href="#" data-i18n="svc2">Лицензирование</a>
+        <a href="#" data-i18n="svc3">Иммиграция и ВНЖ</a>
+        <a href="#" data-i18n="svc4">Налоговое планирование</a>
+        <a href="#" data-i18n="svc5">Судебная защита</a>
+        <a href="#" data-i18n="svc6">Корпоративное право</a>
+      </div>
+      <div class="footer-col">
+        <h5 data-i18n="ft_geo">Юрисдикции</h5>
+        <a href="#" data-i18n="r0">Азербайджан</a>
+        <a href="#" data-i18n="r1">ОАЭ</a>
+        <a href="#" data-i18n="r2">Великобритания</a>
+        <a href="#" data-i18n="r3">Кипр</a>
+        <a href="#" data-i18n="r4">Грузия</a>
+        <a href="#" data-i18n="r5">Гонконг</a>
+      </div>
+      <div class="footer-col">
+        <h5 data-i18n="ft_co">Компания</h5>
+        <a href="#" data-i18n="ft_about">О нас</a>
+        <a href="#" data-i18n="ft_team">Команда</a>
+        <a href="#" data-i18n="nav_news">Новости</a>
+        <a href="#" data-i18n="ft_career">Карьера</a>
+        <a href="#" data-i18n="nav_contact">Контакты</a>
+        <a href="#" data-i18n="ft_priv">Конфиденциальность</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div data-i18n="ft_copy">© 2025 Vlliser Legal Services. Баку, Азербайджан. Все права защищены.</div>
+      <div data-i18n="ft_links">Правовая информация · Политика конфиденциальности · Cookies</div>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="modal" onclick="closeModal(event)">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 data-i18n="mod_title">Заказать консультацию</h3>
+      <p data-i18n="mod_sub">Ответим в течение 2 часов в рабочее время</p>
+      <button class="modal-close" onclick="closeModalDirect()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group"><label data-i18n="f_name">Имя</label><input type="text" data-ph="ph_name" placeholder="Ваше имя"></div>
+      <div class="form-row">
+        <div class="form-group"><label data-i18n="f_phone">Телефон</label><input type="tel" placeholder="+994 50 000 00 00"></div>
+        <div class="form-group"><label>Email</label><input type="email" placeholder="email@domain.com"></div>
+      </div>
+      <div class="form-group">
+        <label data-i18n="f_svc">Тема</label>
+        <select>
+          <option data-i18n="svc1">Регистрация бизнеса</option>
+          <option data-i18n="svc3">Иммиграция и ВНЖ</option>
+          <option data-i18n="svc4">Налоговое планирование</option>
+          <option data-i18n="svc2">Лицензирование</option>
+          <option data-i18n="f_other">Другое</option>
+        </select>
+      </div>
+      <button class="modal-submit" onclick="handleModalSubmit()" data-i18n="f_sub">Отправить заявку →</button>
+    </div>
+  </div>
+</div>
+
+<div class="chat-widget">
+  <div class="chat-options" id="chatOptions">
+    <a href="#" class="chat-btn wa"><span class="chat-btn-icon">💬</span>WhatsApp</a>
+    <a href="#" class="chat-btn tg"><span class="chat-btn-icon">✈️</span>Telegram</a>
+  </div>
+  <button class="chat-main-btn" onclick="toggleChat()"><div class="chat-pulse"></div>💬</button>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const T = {
+  ru: {
+    nav_home:"Главная", nav_about:"О нас", nav_services:"Услуги ▾", nav_geo:"Юрисдикции", nav_news:"Новости", nav_contact:"Контакты",
+    btn_order:"Заказать консультацию", btn_consult:"Получить консультацию", btn_services:"Наши услуги", btn_start:"Начать сотрудничество",
+    hero_badge:"Международное право · Баку, Азербайджан",
+    hero_accent:"Юридическая опора", hero_line:"в глобальном мире",
+    hero_sub:"Ведущая юридическая компания Баку: регистрация бизнеса, лицензирование, иммиграция и защита активов в ключевых юрисдикциях мира. Соединяем Каспийский регион с глобальными рынками.",
+    stat1:"Лет на рынке международного права", stat2:"Успешно завершённых проектов", stat3:"Стран присутствия и партнёрств", stat4:"Клиентов рекомендуют наши услуги",
+    svc_label:"Что мы делаем", svc_title:"Полный спектр юридических услуг", svc_desc:"От регистрации компании до защиты интересов в суде — полное сопровождение вашего бизнеса",
+    svc1:"Регистрация бизнеса", svc2:"Лицензирование", svc3:"Иммиграция и ВНЖ", svc4:"Налоговое планирование", svc5:"Судебная защита", svc6:"Корпоративное право", svc7:"Алятская ОЭЗ", svc8:"Финтех & Крипто", more:"Подробнее →",
+    svc1_d:"Открытие компаний в Азербайджане, ОАЭ, Великобритании и Гонконге. Полное сопровождение через ASAN Xidmət и MIDA.",
+    svc2_d:"Получение лицензий для финтех, крипто и регулируемой деятельности в Азербайджане, ОАЭ и ЕС.",
+    svc3_d:"ВНЖ в Азербайджане для иностранных инвесторов. «Золотые визы» в ОАЭ, Португалии и Мальте.",
+    svc4_d:"Налоговая оптимизация через преимущества азербайджанского законодательства и 50+ международных налоговых соглашений.",
+    svc5_d:"Представление интересов в судах Азербайджана и международных арбитражах. Корпоративные споры и защита инвестиций.",
+    svc6_d:"Due diligence, M&A, контракты и корпоративная реструктуризация по праву Азербайджана и международному праву.",
+    svc7_d:"Получение статуса резидента Алятской свободной экономической зоны: 0% налогов на 10 лет для производства и логистики.",
+    svc8_d:"Юридическое сопровождение финтех-стартапов в ASAN İnnovasiya и получение лицензий для работы с цифровыми активами.",
+    why_quote:"«Наша миссия — быть мостом между возможностями Азербайджана и глобальными рынками для каждого нашего клиента»",
+    why_author:"— Управляющий партнёр Vlliser, Баку", why_years:"ЛЕТ\nОПЫТА", why_label:"Почему Vlliser",
+    why_title:"Бакинская экспертиза, международный масштаб",
+    why_desc:"Мы — команда юристов, выросших в Баку и получивших образование в лучших правовых школах мира. Знаем местное законодательство изнутри и умеем работать на глобальных рынках.",
+    f1t:"Глубокое знание законодательства Азербайджана", f1d:"Прямые связи с MIDA, Торгово-промышленной палатой и ASAN Xidmət. Понимаем государственную систему изнутри.",
+    f2t:"В сердце Каспийского региона", f2d:"Баку — стратегический хаб между Европой и Азией. Мы используем это преимущество для эффективных международных структур.",
+    f3t:"Три языка, один офис", f3d:"Наши юристы работают на азербайджанском, русском и английском языках — без потерь в коммуникации и юридических нюансах.",
+    f4t:"Полная конфиденциальность", f4d:"Строгое соблюдение адвокатской тайны по стандартам азербайджанского законодательства и международным требованиям.",
+    geo_label:"Наше присутствие", geo_title:"Работаем в ключевых юрисдикциях мира",
+    r0:"Азербайджан", r0s:"Баку — главный офис · MIDA · ASAN Xidmət · Алятская ОЭЗ",
+    r1:"ОАЭ", r1s:"Дубай, Абу-Даби · Freezone, Mainland · Золотая виза",
+    r2:"Великобритания", r2s:"LTD, LLP · FCA лицензии · Nominee services",
+    r3:"Кипр", r3s:"Холдинги · IP-Box режим · Налог 12.5%",
+    r4:"Грузия", r4s:"Тбилиси · Виртуальная зона · Low-tax структуры",
+    r5:"Гонконг", r5s:"Азиатский хаб · Низкие налоги · Крипто-лицензии",
+    proc_label:"Как мы работаем", proc_title:"5 шагов к результату", proc_desc:"Прозрачный процесс — вы всегда знаете, что происходит с вашим проектом",
+    s1t:"Консультация", s1d:"Бесплатный анализ вашей ситуации и постановка задачи",
+    s2t:"Стратегия", s2d:"Разработка оптимального юридического решения",
+    s3t:"Соглашение", s3d:"Подписание договора с фиксированной стоимостью",
+    s4t:"Исполнение", s4d:"Реализация проекта с регулярными отчётами",
+    s5t:"Результат", s5d:"Сдача проекта и поддержка в дальнейшем",
+    news_lbl:"Актуально", news_title:"Новости и аналитика", news_all:"Все статьи",
+    nt1:"Азербайджан · Инвестиции", nn1:"COP29 в Баку: новые инвестиционные возможности и «зелёные» юридические инструменты для международного бизнеса", nd1:"18 февраля 2025",
+    nt2:"MIDA · Бизнес", nn2:"Как иностранному инвестору открыть бизнес в Азербайджане за 5 рабочих дней", nd2:"12 февраля 2025",
+    nt3:"Алят ОЭЗ · Налоги", nn3:"Алятская свободная зона: 0% налогов на 10 лет — кто может стать резидентом в 2025 году", nd3:"5 февраля 2025",
+    faq_lbl:"Вопросы и ответы", faq_title:"Часто задаваемые вопросы",
+    q1:"Чем отличается регистрация бизнеса в Азербайджане от других стран?", a1:"Азербайджан предлагает одну из самых быстрых процедур регистрации в СНГ — через ASAN Xidmət за 1–3 рабочих дня. Минимальный уставной капитал для ООО — 1 манат. Страна заключила более 50 соглашений об избежании двойного налогообложения.",
+    q2:"Как Vlliser помогает иностранным компаниям выйти на рынок Азербайджана?", a2:"Мы обеспечиваем полный цикл: юридическая структуризация, регистрация, открытие банковского счёта, получение лицензий. Наши связи с MIDA позволяют воспользоваться государственными преференциями и налоговыми льготами.",
+    q3:"Помогаете ли вы с получением ВНЖ в Азербайджане?", a3:"Да. Иностранные граждане могут получить ВНЖ на основании инвестиций, трудоустройства или открытия бизнеса. Мы сопровождаем весь процесс до подачи в DSMF. Стандартный срок — 10–30 рабочих дней.",
+    q4:"Какие налоговые преимущества есть в Азербайджане?", a4:"Налог на прибыль — 20%, НДС — 18%. Для резидентов ОЭЗ «Алят»: 0% налогов на 10 лет. Более 50 договоров об избежании двойного налогообложения с ОАЭ, Великобританией и ЕС.",
+    q5:"Можно ли вести всё дистанционно, находясь за рубежом?", a5:"Большинство процедур возможно провести удалённо с нотариально заверенной доверенностью. Работаем с клиентами из России, ОАЭ, Европы. Для открытия счёта в некоторых банках нужно личное присутствие.",
+    q6:"Что такое ОЭЗ «Алят» и как туда попасть?", a6:"Алятская свободная экономическая зона вблизи Баку предоставляет резидентам нулевые налоги на 10 лет. Подходит для производства, логистики и технологических компаний. Мы помогаем получить статус резидента.",
+    partners_lbl:"Наши партнёры и ассоциации",
+    cont_lbl:"Связаться с нами", cont_title:"Получите бесплатную консультацию", cont_desc:"Расскажите о вашей задаче — мы найдём оптимальное решение и ответим в течение 2 часов в рабочее время.",
+    addr_lbl:"Главный офис", addr_val:"Баку, ул. Низами 90, «Порт Баку» Бизнес-центр\nAZ1010, Азербайджан",
+    phone_lbl:"Телефон", hrs_lbl:"Часы работы", hrs_val:"Пн–Пт: 9:00–18:00 (AZT)\nСб: 10:00–15:00",
+    f_title:"Отправить заявку", f_name:"Имя *", f_phone:"Телефон *", f_svc:"Интересующая услуга",
+    f_sel:"Выберите услугу", f_msg:"Суть вопроса", f_sub:"Отправить заявку →", f_other:"Другое",
+    ph_name:"Ваше имя", ph_msg:"Опишите вашу задачу...",
+    mod_title:"Заказать консультацию", mod_sub:"Ответим в течение 2 часов в рабочее время",
+    ft_tag:"Ведущая юридическая компания Баку. Профессиональные решения для международного бизнеса — из сердца Каспийского региона.",
+    ft_svc:"Услуги", ft_geo:"Юрисдикции", ft_co:"Компания", ft_about:"О нас", ft_team:"Команда", ft_career:"Карьера", ft_priv:"Конфиденциальность",
+    ft_copy:"© 2025 Vlliser Legal Services. Баку, Азербайджан. Все права защищены.", ft_links:"Правовая информация · Политика конфиденциальности · Cookies",
+    alert:"Спасибо! Мы свяжемся с вами в течение 2 часов."
+  },
+  en: {
+    nav_home:"Home", nav_about:"About", nav_services:"Services ▾", nav_geo:"Jurisdictions", nav_news:"News", nav_contact:"Contact",
+    btn_order:"Get Consultation", btn_consult:"Get Consultation", btn_services:"Our Services", btn_start:"Start Cooperation",
+    hero_badge:"International Law · Baku, Azerbaijan",
+    hero_accent:"Your Legal Partner", hero_line:"in the Global Arena",
+    hero_sub:"Baku's leading international law firm: business registration, licensing, immigration and asset protection across key world jurisdictions. We connect the Caspian region to global markets.",
+    stat1:"Years in international law", stat2:"Successfully completed projects", stat3:"Countries of presence and partnerships", stat4:"Clients recommend our services",
+    svc_label:"What We Do", svc_title:"Full Range of Legal Services", svc_desc:"From company registration to courtroom defence — complete support for your business",
+    svc1:"Business Registration", svc2:"Licensing", svc3:"Immigration & Residency", svc4:"Tax Planning", svc5:"Litigation", svc6:"Corporate Law", svc7:"Alat FEZ", svc8:"Fintech & Crypto", more:"Learn More →",
+    svc1_d:"Company formation in Azerbaijan, UAE, UK and Hong Kong. End-to-end support via ASAN Xidmət and MIDA.",
+    svc2_d:"Obtaining licences for fintech, crypto and regulated activities in Azerbaijan, UAE and the EU.",
+    svc3_d:"Residency permits in Azerbaijan for foreign investors. Golden Visas in UAE, Portugal and Malta.",
+    svc4_d:"Tax optimisation leveraging Azerbaijan's legislation and 50+ international double tax treaties.",
+    svc5_d:"Representation in Azerbaijani courts and international arbitrations. Corporate disputes and investment protection.",
+    svc6_d:"Due diligence, M&A, contract drafting and restructuring under Azerbaijani and international law.",
+    svc7_d:"Obtaining Alat Free Economic Zone resident status: 0% taxes for 10 years for manufacturing and logistics.",
+    svc8_d:"Legal support for fintech startups in ASAN İnnovasiya and licensing for digital asset operations.",
+    why_quote:"\"Our mission is to be the bridge between Azerbaijan's opportunities and global markets for every one of our clients\"",
+    why_author:"— Managing Partner, Vlliser Baku", why_years:"YEARS\nEXPERIENCE", why_label:"Why Vlliser",
+    why_title:"Baku Expertise, Global Scale",
+    why_desc:"We are a team of lawyers raised in Baku and educated at the world's top law schools. We understand local legislation from the inside and know how to operate on global markets.",
+    f1t:"Deep Knowledge of Azerbaijani Law", f1d:"Direct connections with MIDA, the Chamber of Commerce and ASAN Xidmət. We understand the government system from the inside.",
+    f2t:"At the Heart of the Caspian Region", f2d:"Baku is a strategic hub between Europe and Asia. We leverage this advantage to build effective international structures.",
+    f3t:"Three Languages, One Office", f3d:"Our lawyers work in Azerbaijani, Russian and English — with no loss in communication or legal nuance.",
+    f4t:"Full Confidentiality", f4d:"Strict attorney-client privilege under Azerbaijani law and international standards.",
+    geo_label:"Our Presence", geo_title:"Working in Key World Jurisdictions",
+    r0:"Azerbaijan", r0s:"Baku — Head Office · MIDA · ASAN Xidmət · Alat FEZ",
+    r1:"UAE", r1s:"Dubai, Abu Dhabi · Freezone, Mainland · Golden Visa",
+    r2:"United Kingdom", r2s:"LTD, LLP · FCA Licences · Nominee Services",
+    r3:"Cyprus", r3s:"Holdings · IP-Box Regime · 12.5% Tax",
+    r4:"Georgia", r4s:"Tbilisi · Virtual Zone · Low-Tax Structures",
+    r5:"Hong Kong", r5s:"Asia Hub · Low Taxes · Crypto Licences",
+    proc_label:"How We Work", proc_title:"5 Steps to Results", proc_desc:"A transparent process — you always know what is happening with your project",
+    s1t:"Consultation", s1d:"Free analysis of your situation and goal-setting",
+    s2t:"Strategy", s2d:"Development of the optimal legal solution",
+    s3t:"Agreement", s3d:"Signing a contract with a fixed price",
+    s4t:"Execution", s4d:"Project delivery with regular reports",
+    s5t:"Result", s5d:"Project handover and ongoing support",
+    news_lbl:"Insights", news_title:"News & Analysis", news_all:"All Articles",
+    nt1:"Azerbaijan · Investment", nn1:"COP29 in Baku: New Investment Opportunities and Green Legal Tools for International Business", nd1:"February 18, 2025",
+    nt2:"MIDA · Business", nn2:"How a Foreign Investor Can Open a Business in Azerbaijan in 5 Working Days", nd2:"February 12, 2025",
+    nt3:"Alat FEZ · Tax", nn3:"Alat Free Zone: 0% Tax for 10 Years — Who Can Become a Resident in 2025", nd3:"February 5, 2025",
+    faq_lbl:"Q&A", faq_title:"Frequently Asked Questions",
+    q1:"What makes business registration in Azerbaijan different?", a1:"Azerbaijan offers one of the fastest registration procedures in the CIS — through ASAN Xidmət in 1–3 working days. The minimum share capital for an LLC is just 1 Azerbaijani manat. The country has concluded more than 50 double tax treaties.",
+    q2:"How does Vlliser help foreign companies enter Azerbaijan?", a2:"We provide a full cycle: legal structuring, registration, bank account opening, and licensing. Our connections with MIDA allow clients to access state incentives and tax benefits for foreign investors.",
+    q3:"Do you help foreigners obtain residency in Azerbaijan?", a3:"Yes. Foreign nationals can obtain residency based on investment, employment or business ownership. We manage the process from documents to submission with DSMF. Standard timeline: 10–30 working days.",
+    q4:"What are the tax advantages in Azerbaijan?", a4:"Corporate income tax is 20%, VAT is 18%. Alat FEZ residents: 0% tax for 10 years. Over 50 double tax treaties with UAE, UK and most EU countries.",
+    q5:"Can everything be managed remotely from abroad?", a5:"Most procedures can be completed remotely with a notarised power of attorney. We serve clients from Russia, UAE and Europe in fully remote mode. Some banks require a personal visit to open an account.",
+    q6:"What is the Alat FEZ and how can I join?", a6:"The Alat Free Economic Zone near Baku offers zero taxes for residents for 10 years. It is ideal for manufacturing, logistics and technology companies. We assist in obtaining resident status.",
+    partners_lbl:"Our Partners & Associations",
+    cont_lbl:"Get in Touch", cont_title:"Get a Free Consultation", cont_desc:"Tell us about your task — we will find the best solution and respond within 2 hours during business hours.",
+    addr_lbl:"Head Office", addr_val:"Baku, 90 Nizami St., Port Baku Business Centre\nAZ1010, Azerbaijan",
+    phone_lbl:"Phone", hrs_lbl:"Working Hours", hrs_val:"Mon–Fri: 9:00–18:00 (AZT)\nSat: 10:00–15:00",
+    f_title:"Send a Request", f_name:"Name *", f_phone:"Phone *", f_svc:"Service of Interest",
+    f_sel:"Select a service", f_msg:"Your Question", f_sub:"Send Request →", f_other:"Other",
+    ph_name:"Your name", ph_msg:"Describe your task...",
+    mod_title:"Get Consultation", mod_sub:"We will respond within 2 hours during business hours",
+    ft_tag:"Baku's leading law firm. Professional solutions for international business — from the heart of the Caspian region.",
+    ft_svc:"Services", ft_geo:"Jurisdictions", ft_co:"Company", ft_about:"About Us", ft_team:"Team", ft_career:"Careers", ft_priv:"Privacy Policy",
+    ft_copy:"© 2025 Vlliser Legal Services. Baku, Azerbaijan. All rights reserved.", ft_links:"Legal Information · Privacy Policy · Cookies",
+    alert:"Thank you! We will contact you within 2 hours."
+  }
+};
+
+let lang = 'ru';
+
+function setLang(l) {
+  lang = l;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent === l.toUpperCase()));
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.dataset.i18n;
+    if (T[l][k] !== undefined) el.innerHTML = T[l][k].replace(/\n/g,'<br>');
+  });
+  document.querySelectorAll('[data-ph]').forEach(el => {
+    const k = el.dataset.ph;
+    if (T[l][k]) el.placeholder = T[l][k];
+  });
+  document.title = l === 'en' ? 'Vlliser — Professional Legal Solutions | Baku' : 'Vlliser — Профессиональные юридические решения | Баку';
+}
+
+function openModal() { document.getElementById('modal').classList.add('open'); document.body.style.overflow='hidden'; }
+function closeModal(e) { if(e.target===document.getElementById('modal')) closeModalDirect(); }
+function closeModalDirect() { document.getElementById('modal').classList.remove('open'); document.body.style.overflow=''; }
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const burger = document.getElementById('burgerBtn');
+  menu.classList.toggle('open');
+  burger.classList.toggle('open');
+  document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+}
+function closeMobileMenu() {
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.getElementById('burgerBtn').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function collectFormData(formEl) {
+  const inputs = formEl.querySelectorAll('input, select, textarea');
+  const data = { from_name: '', phone: '', email: '', service: '', message: '' };
+  inputs.forEach(el => {
+    if (el.type === 'text' || el.placeholder?.includes('имя') || el.placeholder?.includes('name')) data.from_name = el.value;
+    if (el.type === 'tel') data.phone = el.value;
+    if (el.type === 'email') data.email = el.value;
+    if (el.tagName === 'SELECT') data.service = el.value;
+    if (el.tagName === 'TEXTAREA') data.message = el.value;
+  });
+  return data;
+}
+
+async function sendEmail(formData) {
+  try {
+    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formData);
+    return true;
+  } catch(e) {
+    console.error('EmailJS error:', e);
+    return false;
+  }
+}
+
+async function handleSubmit() {
+  const form = document.querySelector('#contact .contact-form');
+  const btn = form.querySelector('.form-submit');
+  const name = form.querySelector('input[type=text]').value.trim();
+  const phone = form.querySelector('input[type=tel]').value.trim();
+  if (!name || !phone) { alert(lang === 'ru' ? 'Заполните имя и телефон' : 'Please fill in name and phone'); return; }
+  btn.disabled = true;
+  btn.textContent = lang === 'ru' ? 'Отправляем...' : 'Sending...';
+  const ok = await sendEmail(collectFormData(form));
+  btn.disabled = false;
+  btn.textContent = T[lang].f_sub;
+  if (ok) { alert(T[lang].alert); form.querySelectorAll('input, textarea').forEach(el => el.value = ''); }
+  else { alert(lang === 'ru' ? 'Ошибка отправки. Свяжитесь с нами напрямую.' : 'Send error. Please contact us directly.'); }
+}
+
+async function handleModalSubmit() {
+  const modal = document.getElementById('modal');
+  const btn = modal.querySelector('.modal-submit');
+  const name = modal.querySelector('input[type=text]').value.trim();
+  const phone = modal.querySelector('input[type=tel]').value.trim();
+  if (!name || !phone) { alert(lang === 'ru' ? 'Заполните имя и телефон' : 'Please fill in name and phone'); return; }
+  btn.disabled = true;
+  btn.textContent = lang === 'ru' ? 'Отправляем...' : 'Sending...';
+  const ok = await sendEmail(collectFormData(modal));
+  btn.disabled = false;
+  btn.textContent = T[lang].f_sub;
+  if (ok) { closeModalDirect(); setTimeout(() => alert(T[lang].alert), 300); }
+  else { alert(lang === 'ru' ? 'Ошибка отправки. Свяжитесь с нами напрямую.' : 'Send error. Please contact us directly.'); }
+}
+function toggleChat() { document.getElementById('chatOptions').classList.toggle('open'); }
+function toggleFaq(el) {
+  const item = el.parentElement, ans = item.querySelector('.faq-a'), open = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(o => { o.classList.remove('open'); o.querySelector('.faq-a').style.maxHeight=null; });
+  if(!open){ item.classList.add('open'); ans.style.maxHeight = ans.scrollHeight+'px'; }
+}
+
+window.addEventListener('scroll', () => {
+  document.getElementById('header').style.boxShadow = scrollY > 50 ? '0 4px 30px rgba(0,0,0,0.2)' : '';
+});
+
+// Fade-in on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+setLang('ru');
+</script>
+</body>
+</html>

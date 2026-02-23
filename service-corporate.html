@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Корпоративное право — Vlliser Legal Services | Баку</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:#1a2b48;--navy-light:#243556;--navy-dark:#111e33;
+    --gold:#c5a059;--gold-light:#d4b575;--gold-dark:#a8863e;
+    --white:#ffffff;--off-white:#f8f7f4;--gray-mid:#8a9ab5;
+    --text-body:#3a4a63;--shadow:0 4px 30px rgba(26,43,72,0.12);--shadow-lg:0 12px 60px rgba(26,43,72,0.18);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Montserrat',sans-serif;color:var(--text-body);background:var(--white);overflow-x:hidden}
+  a{text-decoration:none}
+  header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(26,43,72,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(197,160,89,0.2);transition:box-shadow 0.3s}
+  .header-inner{max-width:1300px;margin:0 auto;padding:0 40px;height:72px;display:flex;align-items:center;gap:40px}
+  .logo{font-size:26px;font-weight:800;color:var(--white);letter-spacing:3px;text-transform:uppercase;text-decoration:none;flex-shrink:0}
+  .logo span{color:var(--gold)}
+  nav{display:flex;align-items:center;gap:4px;flex:1}
+  .nav-item{padding:8px 16px;color:rgba(255,255,255,0.8);font-size:13px;font-weight:500;letter-spacing:0.5px;text-transform:uppercase;text-decoration:none;cursor:pointer;border-radius:4px;transition:all 0.2s;white-space:nowrap}
+  .nav-item:hover,.nav-item.active{color:var(--gold);background:rgba(197,160,89,0.1)}
+  .dropdown{position:relative}
+  .dropdown-menu{position:absolute;top:calc(100% + 8px);left:0;background:var(--white);min-width:240px;border-radius:8px;box-shadow:var(--shadow-lg);border:1px solid rgba(26,43,72,0.08);opacity:0;visibility:hidden;transform:translateY(-8px);transition:all 0.25s ease;z-index:100}
+  .dropdown:hover .dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}
+  .dropdown-menu a{display:block;padding:12px 20px;color:var(--navy);font-size:13px;font-weight:500;text-decoration:none;border-bottom:1px solid rgba(26,43,72,0.05);transition:all 0.15s}
+  .dropdown-menu a:last-child{border-bottom:none;border-radius:0 0 8px 8px}
+  .dropdown-menu a:first-child{border-radius:8px 8px 0 0}
+  .dropdown-menu a:hover{background:var(--off-white);color:var(--gold);padding-left:26px}
+  .header-right{display:flex;align-items:center;gap:16px;flex-shrink:0}
+  .lang-switcher{display:flex;gap:2px;background:rgba(255,255,255,0.06);border-radius:6px;padding:3px}
+  .lang-btn{padding:5px 12px;font-size:12px;font-weight:700;color:rgba(255,255,255,0.5);cursor:pointer;border-radius:4px;transition:all 0.2s;letter-spacing:0.5px;border:none;background:transparent;font-family:'Montserrat',sans-serif}
+  .lang-btn.active{color:var(--navy);background:var(--gold)}
+  .lang-btn:hover:not(.active){color:var(--white)}
+  .btn-primary{background:var(--gold);color:var(--navy-dark);border:none;padding:11px 24px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;border-radius:4px;cursor:pointer;transition:all 0.25s;text-decoration:none;display:inline-block;font-family:'Montserrat',sans-serif}
+  .btn-primary:hover{background:var(--gold-light);transform:translateY(-1px);box-shadow:0 6px 20px rgba(197,160,89,0.35)}
+  .btn-outline-gold{background:transparent;color:var(--gold);border:1.5px solid var(--gold);padding:11px 24px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;border-radius:4px;cursor:pointer;transition:all 0.25s;text-decoration:none;display:inline-block}
+  .btn-outline-gold:hover{background:var(--gold);color:var(--navy-dark)}
+  .container{max-width:1300px;margin:0 auto;padding:0 40px}
+  .section-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:12px}
+  .section-label::before{content:'';display:block;width:28px;height:1.5px;background:var(--gold)}
+  /* Burger */
+  .burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;cursor:pointer;background:none;border:none;padding:4px;flex-shrink:0}
+  .burger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px;transition:all 0.3s}
+  .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .burger.open span:nth-child(2){opacity:0}
+  .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;bottom:0;background:rgba(17,30,51,0.98);backdrop-filter:blur(16px);z-index:999;overflow-y:auto;padding:32px 24px 40px;flex-direction:column;gap:4px}
+  .mobile-menu.open{display:flex}
+  .mobile-nav-item{padding:14px 16px;color:rgba(255,255,255,0.85);font-size:15px;font-weight:600;text-decoration:none;border-radius:8px;transition:all 0.2s;border-bottom:1px solid rgba(255,255,255,0.05)}
+  .mobile-nav-item:hover{color:var(--gold);background:rgba(197,160,89,0.08)}
+  .mobile-nav-divider{height:1px;background:rgba(197,160,89,0.15);margin:16px 0}
+  .mobile-nav-cta{margin-top:16px}
+  .mobile-nav-cta .btn-primary{width:100%;text-align:center;padding:14px;font-size:13px}
+  /* Hero service */
+  .svc-hero{position:relative;padding:160px 0 80px;background:var(--navy-dark);overflow:hidden}
+  .svc-hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 70% 50%,rgba(197,160,89,0.07) 0%,transparent 60%),linear-gradient(135deg,#0d1824 0%,#1a2b48 50%,#131f35 100%)}
+  .svc-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(197,160,89,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(197,160,89,0.04) 1px,transparent 1px);background-size:60px 60px}
+  .svc-hero-content{position:relative;z-index:2}
+  .breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:24px;font-size:12px;color:rgba(255,255,255,0.4);font-weight:500;letter-spacing:0.5px}
+  .breadcrumb a{color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.2s}
+  .breadcrumb a:hover{color:var(--gold)}
+  .breadcrumb span{color:rgba(255,255,255,0.2)}
+  .svc-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(197,160,89,0.12);border:1px solid rgba(197,160,89,0.3);color:var(--gold);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:8px 16px;border-radius:100px;margin-bottom:24px}
+  .svc-hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,68px);font-weight:600;color:var(--white);line-height:1.1;max-width:720px;margin-bottom:20px}
+  .svc-hero-title em{color:var(--gold);font-style:italic}
+  .svc-hero-sub{font-size:16px;color:var(--gray-mid);line-height:1.7;max-width:600px;margin-bottom:40px}
+  .svc-hero-cta{display:flex;gap:16px;flex-wrap:wrap}
+  /* Content sections */
+  .svc-main{padding:80px 0}
+  .svc-layout{display:grid;grid-template-columns:1fr 360px;gap:60px;align-items:start}
+  .svc-body h2{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3vw,40px);font-weight:600;color:var(--navy);line-height:1.2;margin-bottom:20px}
+  .svc-body p{font-size:15px;color:#6a7a95;line-height:1.8;margin-bottom:20px}
+  .svc-body h3{font-size:18px;font-weight:700;color:var(--navy);margin:36px 0 16px}
+  .checklist{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:28px}
+  .checklist li{display:flex;gap:14px;align-items:flex-start;font-size:14px;color:#3a4a63;line-height:1.6}
+  .checklist li::before{content:'✓';color:var(--gold);font-weight:800;font-size:15px;flex-shrink:0;margin-top:1px}
+  .steps-list{list-style:none;display:flex;flex-direction:column;gap:0;counter-reset:step}
+  .steps-list li{counter-increment:step;display:flex;gap:20px;align-items:flex-start;padding:24px 0;border-bottom:1px solid rgba(26,43,72,0.07)}
+  .steps-list li:last-child{border-bottom:none}
+  .step-num-badge{width:40px;height:40px;border-radius:50%;background:rgba(197,160,89,0.1);border:1.5px solid rgba(197,160,89,0.3);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:var(--gold);flex-shrink:0}
+  .step-body strong{display:block;font-size:14px;font-weight:700;color:var(--navy);margin-bottom:4px}
+  .step-body span{font-size:13px;color:#8a9ab5;line-height:1.6}
+  /* Sidebar */
+  .svc-sidebar{display:flex;flex-direction:column;gap:20px}
+  .sidebar-card{background:var(--off-white);border-radius:12px;padding:28px;border:1px solid rgba(26,43,72,0.06)}
+  .sidebar-card.cta-card{background:var(--navy);border-color:transparent}
+  .sidebar-card h4{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(26,43,72,0.08)}
+  .sidebar-card.cta-card h4{color:var(--white);border-bottom-color:rgba(255,255,255,0.1)}
+  .sidebar-card p{font-size:13px;color:#8a9ab5;line-height:1.6;margin-bottom:20px}
+  .sidebar-card.cta-card p{color:rgba(255,255,255,0.6)}
+  .sidebar-card .btn-primary{width:100%;text-align:center;padding:13px}
+  .price-tag{background:rgba(197,160,89,0.1);border:1px solid rgba(197,160,89,0.25);border-radius:8px;padding:16px 20px;margin-bottom:16px}
+  .price-label{font-size:11px;font-weight:600;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+  .price-val{font-size:22px;font-weight:800;color:var(--navy)}
+  .price-sub{font-size:12px;color:#8a9ab5;margin-top:2px}
+  .related-links{display:flex;flex-direction:column;gap:8px}
+  .related-link{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-radius:8px;font-size:13px;font-weight:600;color:var(--navy);text-decoration:none;border:1px solid rgba(26,43,72,0.08);transition:all 0.2s}
+  .related-link:hover{border-color:var(--gold);color:var(--gold);background:rgba(197,160,89,0.04)}
+  .related-link::after{content:'→';font-size:14px}
+  /* Stats row */
+  .svc-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(26,43,72,0.06);border-radius:12px;overflow:hidden;margin:48px 0}
+  .svc-stat{background:var(--white);padding:32px 28px}
+  .svc-stat-num{font-size:36px;font-weight:800;color:var(--navy);line-height:1;margin-bottom:6px}
+  .svc-stat-num span{color:var(--gold)}
+  .svc-stat-label{font-size:12px;color:#8a9ab5;font-weight:500;line-height:1.4}
+  /* Footer */
+  footer{background:var(--navy-dark);border-top:1px solid rgba(197,160,89,0.1);padding:60px 0 30px}
+  .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;margin-bottom:50px}
+  .footer-logo{font-size:22px;font-weight:800;color:var(--white);letter-spacing:3px;margin-bottom:16px}
+  .footer-logo span{color:var(--gold)}
+  .footer-tagline{font-size:13px;color:var(--gray-mid);line-height:1.7;margin-bottom:24px}
+  .footer-socials{display:flex;gap:10px}
+  .social-btn{width:36px;height:36px;border:1px solid rgba(255,255,255,0.1);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--gray-mid);font-size:13px;cursor:pointer;transition:all 0.2s;text-decoration:none}
+  .social-btn:hover{border-color:var(--gold);color:var(--gold)}
+  .footer-col h5{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--white);margin-bottom:20px}
+  .footer-col a{display:block;font-size:13px;color:var(--gray-mid);text-decoration:none;margin-bottom:10px;transition:color 0.2s}
+  .footer-col a:hover{color:var(--gold)}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid rgba(255,255,255,0.06);font-size:12px;color:rgba(255,255,255,0.3);gap:20px}
+  /* Modal */
+  .modal-overlay{position:fixed;inset:0;background:rgba(10,15,25,0.8);backdrop-filter:blur(8px);z-index:9999;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all 0.3s}
+  .modal-overlay.open{opacity:1;visibility:visible}
+  .modal{background:var(--white);border-radius:16px;width:90%;max-width:520px;overflow:hidden;transform:scale(0.94) translateY(16px);transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1);position:relative}
+  .modal-overlay.open .modal{transform:scale(1) translateY(0)}
+  .modal-header{background:var(--navy);padding:32px 36px}
+  .modal-header h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--white);margin-bottom:6px}
+  .modal-header p{font-size:13px;color:var(--gray-mid)}
+  .modal-close{position:absolute;top:20px;right:24px;width:32px;height:32px;background:rgba(255,255,255,0.1);border:none;border-radius:50%;color:var(--white);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+  .modal-close:hover{background:rgba(255,255,255,0.2)}
+  .modal-body{padding:32px 36px}
+  .form-group{margin-bottom:16px}
+  .form-group label{display:block;font-size:11px;font-weight:600;color:var(--gray-mid);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+  .form-group input,.form-group select{width:100%;background:var(--off-white);border:1.5px solid rgba(26,43,72,0.12);color:var(--navy);padding:13px 16px;font-size:14px;font-family:'Montserrat',sans-serif;border-radius:6px;outline:none;transition:all 0.2s}
+  .form-group input:focus,.form-group select:focus{border-color:var(--gold)}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .modal-submit{width:100%;background:var(--navy);color:var(--white);border:none;padding:16px;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;border-radius:6px;cursor:pointer;transition:all 0.25s;margin-top:8px;font-family:'Montserrat',sans-serif}
+  .modal-submit:hover{background:var(--gold);color:var(--navy)}
+  /* Chat */
+  .chat-widget{position:fixed;bottom:32px;right:32px;z-index:900;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+  .chat-options{display:flex;flex-direction:column;gap:8px;opacity:0;visibility:hidden;transform:translateY(10px);transition:all 0.3s}
+  .chat-options.open{opacity:1;visibility:visible;transform:translateY(0)}
+  .chat-btn{display:flex;align-items:center;gap:10px;background:var(--white);border-radius:50px;padding:10px 18px 10px 12px;box-shadow:0 4px 20px rgba(0,0,0,0.15);font-size:13px;font-weight:600;color:var(--navy);cursor:pointer;text-decoration:none;transition:all 0.2s;border:none;font-family:'Montserrat',sans-serif}
+  .chat-btn:hover{transform:translateX(-4px)}
+  .chat-btn-icon{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px}
+  .chat-btn.wa .chat-btn-icon{background:#25D366}
+  .chat-btn.tg .chat-btn-icon{background:#0088cc}
+  .chat-main-btn{width:56px;height:56px;border-radius:50%;background:var(--gold);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 6px 24px rgba(197,160,89,0.45);transition:all 0.3s;position:relative}
+  .chat-main-btn:hover{transform:scale(1.08)}
+  .chat-pulse{position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(197,160,89,0.4);animation:chatpulse 2s ease-out infinite}
+  @keyframes chatpulse{0%{transform:scale(0.9);opacity:1}100%{transform:scale(1.4);opacity:0}}
+  .fade-in{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
+  .fade-in.visible{opacity:1;transform:translateY(0)}
+  @media(max-width:1024px){.svc-layout{grid-template-columns:1fr}.svc-sidebar{flex-direction:row;flex-wrap:wrap}.sidebar-card{flex:1;min-width:260px}.footer-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:768px){.header-inner{padding:0 20px;gap:12px}nav{display:none}.burger{display:flex}.header-right .btn-primary{display:none}.container{padding:0 20px}.svc-hero{padding:120px 0 60px}.svc-stats{grid-template-columns:1fr}.svc-sidebar{flex-direction:column}.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column;text-align:center}.form-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header id="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">VLL<span>I</span>SER</a>
+    <nav>
+      <a href="index.html" class="nav-item">Главная</a>
+      <a href="index.html#why" class="nav-item">О нас</a>
+      <div class="dropdown">
+        <span class="nav-item active">Услуги ▾</span>
+        <div class="dropdown-menu">
+          <a href="service-registration.html">Регистрация бизнеса</a>
+          <a href="service-licensing.html">Лицензирование</a>
+          <a href="service-immigration.html">Иммиграция и ВНЖ</a>
+          <a href="service-tax.html">Налоговое планирование</a>
+          <a href="service-litigation.html">Судебная защита</a>
+          <a href="service-corporate.html">Корпоративное право</a>
+          <a href="service-alat.html">Алятская ОЭЗ</a>
+          <a href="service-fintech.html">Финтех & Крипто</a>
+        </div>
+      </div>
+      <a href="index.html#geography" class="nav-item">Юрисдикции</a>
+      <a href="index.html#news" class="nav-item">Новости</a>
+      <a href="index.html#contact" class="nav-item">Контакты</a>
+    </nav>
+    <button class="burger" id="burgerBtn" onclick="toggleMobileMenu()" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="header-right">
+      <button class="btn-primary" onclick="openModal()">Заказать консультацию</button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" class="mobile-nav-item">Главная</a>
+  <a href="index.html#why" class="mobile-nav-item">О нас</a>
+  <a href="service-registration.html" class="mobile-nav-item">Регистрация бизнеса</a>
+  <a href="service-licensing.html" class="mobile-nav-item">Лицензирование</a>
+  <a href="service-immigration.html" class="mobile-nav-item">Иммиграция и ВНЖ</a>
+  <a href="service-tax.html" class="mobile-nav-item">Налоговое планирование</a>
+  <a href="service-litigation.html" class="mobile-nav-item">Судебная защита</a>
+  <a href="service-corporate.html" class="mobile-nav-item">Корпоративное право</a>
+  <a href="service-alat.html" class="mobile-nav-item">Алятская ОЭЗ</a>
+  <a href="service-fintech.html" class="mobile-nav-item">Финтех & Крипто</a>
+  <div class="mobile-nav-divider"></div>
+  <div class="mobile-nav-cta"><button class="btn-primary" onclick="closeMobileMenu();openModal()">Заказать консультацию</button></div>
+</div>
+
+<section class="svc-hero">
+  <div class="svc-hero-bg"></div>
+  <div class="svc-hero-grid"></div>
+  <div class="svc-hero-content">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Главная</a>
+        <span>/</span>
+        <a href="index.html#services">Услуги</a>
+        <span>/</span>
+        <span style="color:rgba(255,255,255,0.7)">Корпоративное право</span>
+      </div>
+      <div class="svc-badge">● Корпоративные услуги</div>
+      <h1 class="svc-hero-title">Корпоративное<br>право и M&A<br><em>под ключ</em></h1>
+      <p class="svc-hero-sub">Due diligence, структурирование сделок, корпоративные договоры и реструктуризация по праву Азербайджана и международному праву.</p>
+      <div class="svc-hero-cta">
+        <button class="btn-primary" onclick="openModal()">Получить консультацию</button>
+        <a href="index.html#services" class="btn-outline-gold">Все услуги</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="svc-main">
+  <div class="container">
+    <div class="svc-layout">
+      <div class="svc-body fade-in">
+        
+      <h2>Корпоративное сопровождение бизнеса</h2>
+      <p>Vlliser предоставляет полный спектр корпоративно-правовых услуг — от ежедневного юридического сопровождения до сложных трансграничных M&A сделок. Наши юристы имеют глубокую экспертизу в корпоративном праве Азербайджана и международных транзакциях.</p>
+      <p>Мы работаем как внешний юридический отдел для малого и среднего бизнеса, а также как советники крупных корпораций по стратегическим проектам.</p>
+      <h3>Наши практики</h3>
+      <ul class="checklist">
+        <li>Due diligence при слияниях, поглощениях и инвестициях</li>
+        <li>Структурирование и документирование M&A сделок</li>
+        <li>Корпоративные договоры: SHA, JVA, SPA</li>
+        <li>Реструктуризация корпоративных групп</li>
+        <li>Корпоративное управление и compliance</li>
+        <li>Подготовка и сопровождение общих собраний акционеров</li>
+        <li>Изменения в уставных документах и реестре</li>
+      </ul>
+      <div class="svc-stats">
+        <div class="svc-stat"><div class="svc-stat-num">$500M<span>+</span></div><div class="svc-stat-label">Сделок сопровождено</div></div>
+        <div class="svc-stat"><div class="svc-stat-num">100<span>+</span></div><div class="svc-stat-label">Корпоративных клиентов</div></div>
+        <div class="svc-stat"><div class="svc-stat-num">10<span>+</span></div><div class="svc-stat-label">Лет корпоративной практики</div></div>
+      </div>
+      <h3>Этапы работы</h3>
+      <ol class="steps-list">
+        <li><div class="step-num-badge">1</div><div class="step-body"><strong>Структурирование сделки</strong><span>Определяем оптимальную структуру и юрисдикцию с учётом налоговых и правовых последствий</span></div></li>
+        <li><div class="step-num-badge">2</div><div class="step-body"><strong>Due diligence</strong><span>Проводим правовой анализ активов, обязательств и рисков целевой компании</span></div></li>
+        <li><div class="step-num-badge">3</div><div class="step-body"><strong>Документирование</strong><span>Подготавливаем все необходимые корпоративные и транзакционные документы</span></div></li>
+        <li><div class="step-num-badge">4</div><div class="step-body"><strong>Закрытие и регистрация</strong><span>Сопровождаем закрытие сделки и государственную регистрацию изменений</span></div></li>
+      </ol>
+    
+      </div>
+      <div class="svc-sidebar">
+        <div class="sidebar-card cta-card">
+          <h4>Получить консультацию</h4>
+          <p>Расскажите о вашей задаче — ответим в течение 2 часов в рабочее время.</p>
+          <div class="price-tag">
+            <div class="price-label">Стоимость</div>
+            <div class="price-val">от $1,000</div>
+            <div class="price-sub">абонентское обслуживание</div>
+          </div>
+          <button class="btn-primary" onclick="openModal()">Заказать →</button>
+        </div>
+        <div class="sidebar-card">
+          <h4>Связанные услуги</h4>
+          <div class="related-links">
+            <a href="service-registration.html" class="related-link">Регистрация бизнеса</a><a href="service-tax.html" class="related-link">Налоговое планирование</a><a href="service-litigation.html" class="related-link">Судебная защита</a>
+          </div>
+        </div>
+        <div class="sidebar-card">
+          <h4>Контакты</h4>
+          <p style="font-size:13px;color:#8a9ab5;margin-bottom:8px">📍 Баку, ул. Низами 90,<br>Порт Баку Бизнес-центр</p>
+          <p style="font-size:13px;color:#8a9ab5;margin-bottom:8px">🕐 Пн–Пт: 9:00–18:00<br>Сб: 10:00–15:00</p>
+          <p style="font-size:13px;color:var(--gold);font-weight:600">info@vlliser.com</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">VLL<span>I</span>SER</div>
+        <div class="footer-tagline">Ведущая юридическая компания Баку. Профессиональные решения для международного бизнеса — из сердца Каспийского региона.</div>
+        <div class="footer-socials">
+          <a href="#" class="social-btn">in</a><a href="#" class="social-btn">t.me</a><a href="#" class="social-btn">wa</a><a href="#" class="social-btn">X</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Услуги</h5>
+        <a href="service-registration.html">Регистрация бизнеса</a>
+        <a href="service-licensing.html">Лицензирование</a>
+        <a href="service-immigration.html">Иммиграция и ВНЖ</a>
+        <a href="service-tax.html">Налоговое планирование</a>
+        <a href="service-litigation.html">Судебная защита</a>
+        <a href="service-corporate.html">Корпоративное право</a>
+        <a href="service-alat.html">Алятская ОЭЗ</a>
+        <a href="service-fintech.html">Финтех & Крипто</a>
+      </div>
+      <div class="footer-col">
+        <h5>Юрисдикции</h5>
+        <a href="index.html#geography">Азербайджан</a>
+        <a href="index.html#geography">ОАЭ</a>
+        <a href="index.html#geography">Великобритания</a>
+        <a href="index.html#geography">Кипр</a>
+        <a href="index.html#geography">Грузия</a>
+        <a href="index.html#geography">Гонконг</a>
+      </div>
+      <div class="footer-col">
+        <h5>Компания</h5>
+        <a href="index.html#why">О нас</a>
+        <a href="index.html#contact">Контакты</a>
+        <a href="index.html#news">Новости</a>
+        <a href="index.html#contact">Карьера</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2025 Vlliser Legal Services. Баку, Азербайджан. Все права защищены.</div>
+      <div>Правовая информация · Политика конфиденциальности · Cookies</div>
+    </div>
+  </div>
+</footer>
+<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Заказать консультацию</h3>
+      <p>Ответим в течение 2 часов в рабочее время</p>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group"><label>Имя</label><input type="text" placeholder="Ваше имя"></div>
+      <div class="form-row">
+        <div class="form-group"><label>Телефон</label><input type="tel" placeholder="+994 50 000 00 00"></div>
+        <div class="form-group"><label>Email</label><input type="email" placeholder="email@domain.com"></div>
+      </div>
+      <div class="form-group"><label>Тема</label>
+        <select>
+          <option>Регистрация бизнеса</option><option>Лицензирование</option>
+          <option>Иммиграция и ВНЖ</option><option>Налоговое планирование</option>
+          <option>Судебная защита</option><option>Корпоративное право</option>
+          <option>Алятская ОЭЗ</option><option>Финтех & Крипто</option><option>Другое</option>
+        </select>
+      </div>
+      <button class="modal-submit" onclick="closeModal();alert('Спасибо! Мы свяжемся с вами в течение 2 часов.')">Отправить заявку →</button>
+    </div>
+  </div>
+</div>
+<div class="chat-widget">
+  <div class="chat-options" id="chatOptions">
+    <a href="#" class="chat-btn wa"><span class="chat-btn-icon">💬</span>WhatsApp</a>
+    <a href="#" class="chat-btn tg"><span class="chat-btn-icon">✈️</span>Telegram</a>
+  </div>
+  <button class="chat-main-btn" onclick="toggleChat()"><div class="chat-pulse"></div>💬</button>
+</div>
+
+<script>
+
+function toggleMobileMenu(){const m=document.getElementById('mobileMenu'),b=document.getElementById('burgerBtn');m.classList.toggle('open');b.classList.toggle('open');document.body.style.overflow=m.classList.contains('open')?'hidden':''}
+function closeMobileMenu(){document.getElementById('mobileMenu').classList.remove('open');document.getElementById('burgerBtn').classList.remove('open');document.body.style.overflow=''}
+function openModal(){document.getElementById('modal').classList.add('open');document.body.style.overflow='hidden'}
+function closeModal(){document.getElementById('modal').classList.remove('open');document.body.style.overflow=''}
+function toggleChat(){document.getElementById('chatOptions').classList.toggle('open')}
+window.addEventListener('scroll',()=>{document.getElementById('header').style.boxShadow=scrollY>50?'0 4px 30px rgba(0,0,0,0.2)':''})
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:0.1});
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+
+</script>
+</body>
+</html>
